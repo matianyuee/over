@@ -1,24 +1,17 @@
-# README
+#eHR
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###初始化数据
 
-Things you may want to cover:
+```bash
+cp config/database.yml.example config/database.yml
+# 更新config/database.yml
+rake db:create
+rake db:migrate
+rake db:seed
+```
 
-* Ruby version
 
-* System dependencies
+### 登录
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Email: `admin@ebuychem.com`
+密码:  `admin123`
