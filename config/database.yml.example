@@ -1,0 +1,25 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  reconnect: true
+  username: root
+  password: 123456
+  host: localhost
+  port: 3306
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: ehr_development
+
+test:
+  <<: *default
+  database: ehr_test
+
+staging:
+  <<: *default
+  database: ehr_staging
+
+production:
+  <<: *default
+  database: ehr_production

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WHMall</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <%= favicon_link_tag image_path("favicon.ico") %>
+    <%= stylesheet_link_tag "admin" %>
+    <%= javascript_include_tag "admin" %>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <%= render partial: 'admin/share/header' %>
+      <%= render partial: 'admin/share/sidebar' %>
+      <div class="content-wrapper">
+        <section class="content-header">
+        <% if content_for?(:content_title) %>
+          <h1 >
+            <%= yield :content_title %>
+            <% if content_for?(:content_title_small) %>
+              <small><%= yield :content_title_small %></small>
+            <% end %>
+          </h1>
+          <% if content_for?(:breadcrumb_tip) %>
+            <%= yield :breadcrumb_tip %>
+          <% end %>
+        <% end %>
+        <% if content_for?(:content_actions) %>
+          <div class="content-actions col-sm-12">
+            <%= yield :content_actions %>
+          </div>
+        <% end %>
+
+        <% if content_for?(:content_tabs) %>
+          <ul class="nav nav-tabs">
+            <%= yield :content_tabs %>
+          </ul>
+        <% end %>
+        </section>
+        <section class="content">
+        <%= yield %>
+        </section>
+      </div>
+      <%= render partial: 'admin/share/footer' %>
+    </div>
+  </body>
+</html>
