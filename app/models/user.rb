@@ -4,6 +4,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :email
-  validates_presence_of :member_name
-  validates_presence_of :company_name
 end
