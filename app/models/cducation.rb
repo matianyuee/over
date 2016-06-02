@@ -1,0 +1,2 @@
+class Cducation < ApplicationRecord
+end

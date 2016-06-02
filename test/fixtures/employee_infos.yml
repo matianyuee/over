@@ -1,0 +1,67 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  gender: MyString
+  birth_date: 2016-06-02 17:14:19
+  marriage: MyString
+  nation: MyString
+  origin: MyString
+  political_landscape: MyString
+  physical_condition: MyString
+  height: MyString
+  weight: MyString
+  contact_phone: 1
+  graduation_time: MyString
+  graduate: MyString
+  _school: MyString
+  major: MyString
+  highest_degree: MyString
+  id_card_number: 1
+  permanent_address: MyString
+  live_address: MyString
+  mailbox: MyString
+  salary_expectation: MyString
+  ox: MyString
+  salary_expectation: MyString
+  arrival_time: 2016-06-02 17:14:19
+  self_evaluation: MyString
+  department_id: 1
+  date_of_application: 2016-06-02 17:14:19
+  office_software: MyString
+  reasons_for_applying: MyString
+  education_id: 1
+  work_experience_id: 1
+
+two:
+  name: MyString
+  gender: MyString
+  birth_date: 2016-06-02 17:14:19
+  marriage: MyString
+  nation: MyString
+  origin: MyString
+  political_landscape: MyString
+  physical_condition: MyString
+  height: MyString
+  weight: MyString
+  contact_phone: 1
+  graduation_time: MyString
+  graduate: MyString
+  _school: MyString
+  major: MyString
+  highest_degree: MyString
+  id_card_number: 1
+  permanent_address: MyString
+  live_address: MyString
+  mailbox: MyString
+  salary_expectation: MyString
+  ox: MyString
+  salary_expectation: MyString
+  arrival_time: 2016-06-02 17:14:19
+  self_evaluation: MyString
+  department_id: 1
+  date_of_application: 2016-06-02 17:14:19
+  office_software: MyString
+  reasons_for_applying: MyString
+  education_id: 1
+  work_experience_id: 1
