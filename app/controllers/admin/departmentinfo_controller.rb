@@ -29,6 +29,9 @@ class  Admin::DepartmentinfoController < Admin::BaseController
   def edit
     @up = Department.find(params[:id])
   end
+  def show
+
+  end
 
   def article_params
     params.require(:department).permit(:position)

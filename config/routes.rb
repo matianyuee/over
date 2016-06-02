@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :admin do
     get '/', :to => redirect('/admin/dashboard')
-    resources :departmentinfo
+    resources :departmentinfo do
+       member do
+         get 'destroy'
+       end
+    end
   end
 end
