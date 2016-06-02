@@ -28,7 +28,7 @@
       <li id="g"><a href='#' class='selected'><i class='fa fa-circle-o'></i>部门管理</a></li>
       <ul id="tree">
         <li><%= link_to '部门添加' , {:controller => :departmentinfo, :action => :new } %></li>
-        <li>部门撤销</li>
+        <li><%= link_to '部门撤销' , {:controller => :departmentinfo, :action => :index } %></li>
 
       </ul>
       <li id="gg"><a href='#' class='text-aqua'><i class='fa fa-circle-o'></i>员工管理</a></li>

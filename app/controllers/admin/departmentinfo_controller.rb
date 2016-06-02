@@ -13,7 +13,7 @@ class  Admin::DepartmentinfoController < Admin::BaseController
     index
     render 'index'
   end
-  def  destroy
+  def destroy
     @tcl = Department.find(params[:id])
     @tcl.destroy
     index
@@ -22,7 +22,7 @@ class  Admin::DepartmentinfoController < Admin::BaseController
   end
   def update
     @up = Department.find(params[:id])
-    @up.update(params.require(:up).permit(:position))
+    @up.update(article_params)
     index
     render 'index'
   end

@@ -1,12 +1,12 @@
 
-<%=form_tag(:action => :update, :id => @up.id) do%>
+<%=form_for(@up, url: {:controller => 'admin/departmentinfo' ,:action => 'update'} , html: {method: :put}) do |f|%>
     <table>
       <tr>
         <td>部门</td>
-        <td><%=text_field :up, :position%></td>
+        <td><%=f.text_field :position%></td>
       </tr>
       <tr>
-        <td><%=submit_tag "提交"%></td>
+        <td><%=f.submit "提交"%></td>
       </tr>
     </table>
 <% end %>
