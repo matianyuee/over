@@ -1,0 +1,12 @@
+
+<%=form_tag(:action => :update, :id => @up.id) do%>
+    <table>
+      <tr>
+        <td>部门</td>
+        <td><%=text_field :up, :position%></td>
+      </tr>
+      <tr>
+        <td><%=submit_tag "提交"%></td>
+      </tr>
+    </table>
+<% end %>

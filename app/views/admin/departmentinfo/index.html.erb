@@ -1,0 +1,29 @@
+<style>
+  #zhon {
+    margin: 0 auto;
+  }
+</style>
+
+<table id="zhon" border="1px">
+
+  <tr>
+    <td>编号</td>
+    <td>名称</td>
+    <td>操作1</td>
+    <td>操作2</td>
+  </tr>
+
+  <% @article.each do |ar| %>
+      <tr>
+        <td><%= ar.id%></td>
+        <td><%= ar.position%></td>
+        <td>
+          <%= link_to '删除', {:controller => 'admin/departmentinfo', :action => 'destroy', :id => "#{ar.id}"}%>
+        </td>
+        <td>
+          <%= link_to '修改', {:controller => 'admin/departmentinfo', :action => 'edit', :id => "#{ar.id}"}%>
+        </td>
+      </tr>
+  <% end %>
+
+</table>

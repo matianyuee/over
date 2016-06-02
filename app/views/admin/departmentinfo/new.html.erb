@@ -1,0 +1,10 @@
+
+<%= form_for(@department, url: {:controller => 'admin/departmentinfo' ,:action => 'create'} ,html:{method: :post}) do |f| %>
+    <p>
+      <%= f.label :部门 %><br>
+      <%= f.text_field :position%>
+    </p>
+    <p>
+      <%= f.submit "提交"%>
+    </p>
+<% end %>

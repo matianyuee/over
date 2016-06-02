@@ -1,13 +1,45 @@
+<script>
+  $(document).ready(function(){
+    $("#g").click(function(){
+      $("#tree").toggle()
+    });
+    $("#gg").click(function(){
+      $("#treee").toggle()
+    });
+  });
+</script>
+
+
+<style>
+  #tree{
+    display: none;
+  }
+  #tree>li{
+    list-style: none;
+  }
+  li{
+    color: white;
+  }
+</style>
+
 <aside class="main-sidebar">
-<section class="sidebar">
-<ul class="sidebar-menu">
-  <li><a href='#' class='selected'><i class='fa fa-circle-o'></i>Menu</a></li>
-  <li><a href='#' class='text-aqua'><i class='fa fa-circle-o'></i>Menu</a></li>
-  <li class="treeview">
-  <a href="#"><i class="fa"></i><span>Tree</span><i class="fa fa-angle-left pull-right"></i></a>
-  <ul class="treeview-menu" style='display: block;'>
-    <li><a href='#' class='text-aqua'><i class='fa fa-circle-o'></i>Menu</a></li>
-  </ul></li>
-</ul>
-</section>
+  <section class="sidebar">
+    <ul class="sidebar-menu">
+      <li id="g"><a href='#' class='selected'><i class='fa fa-circle-o'></i>部门管理</a></li>
+      <ul id="tree">
+        <li><%= link_to '部门添加' , {:controller => :departmentinfo, :action => :new } %></li>
+        <li>部门撤销</li>
+
+      </ul>
+      <li id="gg"><a href='#' class='text-aqua'><i class='fa fa-circle-o'></i>员工管理</a></li>
+      <ul id="treee">
+        <li>
+          员工管理<i class="fa fa-angle-left pull-right"></i></a>
+        </li>
+      </ul>
+      <ul class="treeview-menu" style='display: block;'>
+        <li><a href='#' class='text-aqua'><i class='fa fa-circle-o'></i>Menu</a></li>
+      </ul>
+    </ul>
+  </section>
 </aside>
