@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  get 'departmentinfo/index'
-
-  get 'departmentinfo/new'
-
-  get 'departmentinfo/edit'
-
+  get 'staffinfo/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => redirect('/admin/dashboard')
   get  "admin/dashboard" => "admin/dashboard#index", :as => 'user_root' # after sign in on admin page
@@ -16,5 +11,6 @@ Rails.application.routes.draw do
          get 'destroy'
        end
     end
+    resources :staffinfo
   end
 end

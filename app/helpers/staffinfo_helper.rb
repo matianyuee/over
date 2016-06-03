@@ -1,0 +1,2 @@
+module StaffinfoHelper
+end
