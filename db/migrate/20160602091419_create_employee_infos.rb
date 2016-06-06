@@ -17,7 +17,7 @@ class CreateEmployeeInfos < ActiveRecord::Migration[5.0]
       t.string :_school
       t.string :major
       t.string :highest_degree
-      t.integer :id_card_number
+      t.string :id_card_number
       t.string :permanent_address
       t.string :live_address
       t.string :mailbox

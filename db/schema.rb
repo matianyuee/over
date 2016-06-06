@@ -14,11 +14,13 @@
 ActiveRecord::Schema.define(version: 20160602091419) do
 
   create_table "cducations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "start_and_end_date"
+    t.datetime "start_and"
+    t.datetime "end_date"
     t.string   "school"
     t.string   "major"
     t.string   "leaming_form"
     t.string   "qualifications_and_degree"
+    t.integer  "employee_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -46,7 +48,7 @@ ActiveRecord::Schema.define(version: 20160602091419) do
     t.string   "_school"
     t.string   "major"
     t.string   "highest_degree"
-    t.integer  "id_card_number"
+    t.string   "id_card_number"
     t.string   "permanent_address"
     t.string   "live_address"
     t.string   "mailbox"
@@ -95,13 +97,15 @@ ActiveRecord::Schema.define(version: 20160602091419) do
   end
 
   create_table "work_experiences", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "start_and_end_date"
+    t.datetime "start_and"
+    t.datetime "end_date"
     t.string   "work_unit"
     t.string   "post"
     t.string   "salary"
     t.string   "reasons_for_leaving"
     t.string   "witness"
     t.string   "telephone"
+    t.integer  "employee_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end

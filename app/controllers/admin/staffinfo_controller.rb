@@ -9,9 +9,12 @@ class Admin::StaffinfoController < Admin::BaseController
 
   def create
     @article = EmployeeInfo.new(article_params)
-    @article.save
+    if  @article.save
     index
     render 'index'
+    else
+      render :new
+      end
   end
   def destroy
     @employee_info = EmployeeInfo.find(params[:id])
@@ -34,7 +37,7 @@ class Admin::StaffinfoController < Admin::BaseController
   end
 
   def article_params
-    params.require(:employee_infon).permit(:position)
+    params.require(:employee_info).permit(:name,:gender,:birth_date,:marriage,:nation,:origin,:political_landscape,:physical_condition,:height,:weight,:contact_phone,:graduation_time,:_school,:major,:highest_degree,:id_card_number,:permanent_address,:live_address,:mailbox,:salary_expectation,:arrival_time)
   end
 
 end

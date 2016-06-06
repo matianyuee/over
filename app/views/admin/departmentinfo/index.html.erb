@@ -5,7 +5,7 @@
 </style>
 
 <table id="zhon" border="1px">
-
+    <h5 align="center">部门信息</h5>
   <tr>
     <td>编号</td>
     <td>名称</td>
@@ -25,5 +25,9 @@
         </td>
       </tr>
   <% end %>
+  <tr>
+    <td colspan="4" align="center"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></td>
+    </tr>
+
 
 </table>

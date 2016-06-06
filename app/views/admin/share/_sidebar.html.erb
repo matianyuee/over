@@ -34,7 +34,10 @@
       <li id="gg"><a href='#' class='text-aqua'><i class='fa fa-circle-o'></i>员工管理</a></li>
       <ul id="treee">
         <li>
-         <%= link_to '应聘人员登记' , {:controller => :staffinfo, :action => :new } %><i class="fa fa-angle-left pull-right"></i>
+         <%= link_to '应聘人员登记' , {:controller => :staffinfo, :action => :new } %>
+        </li>
+        <li>
+          <%= link_to '应聘人员查看' , {:controller => :staffinfo, :action => :index } %>
         </li>
       </ul>
       <ul class="treeview-menu" style='display: block;'>

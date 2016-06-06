@@ -6,7 +6,8 @@
         <td><%=f.text_field :position%></td>
       </tr>
       <tr>
-        <td><%=f.submit "提交"%></td>
+        <td><%=f.submit "提交"%></td><td><%= link_to '返回', {:controller => 'admin/departmentinfo', :action => 'index'}%></td>
       </tr>
     </table>
+
 <% end %>

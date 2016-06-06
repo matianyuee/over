@@ -1,2 +1,70 @@
-<h1>Staffinfo#index</h1>
-<p>Find me in app/views/staffinfo/index.html.erb</p>
+<style>
+  #zhon {
+    margin: 0 auto;
+  }
+</style>
+<h4 align="center">应聘人员查看</h4>
+
+<table id="zhon" border="1px">
+
+  <tr>
+    <td>姓名</td>
+    <td>性别</td>
+    <td>出生日期</td>
+    <td>婚育状况</td>
+    <td>民族</td>
+    <td>籍贯</td>
+    <td>政治面貌</td>
+    <td>身体状况</td>
+    <td>身高</td>
+    <td>体重</td>
+    <td>联系电话</td>
+    <td>毕业时间</td>
+    <td>毕业院校</td>
+    <td>专业</td>
+    <td>最高学历</td>
+    <td>身份证号码</td>
+    <td>户籍地址</td>
+    <td>现居住地址</td>
+    <td>邮箱</td>
+    <td>期望薪资</td>
+    <td>到岗时间</td>
+    <td>操作1</td>
+    <td>操作2</td>
+  </tr>
+
+  <% @employee_info.each do |ar| %>
+      <tr>
+        <td><%= ar.name%></td>
+        <td><%= ar.gender%></td>
+        <td><%= ar.birth_date%></td>
+        <td><%= ar.marriage%></td>
+        <td><%= ar.nation%></td>
+        <td><%= ar.origin%></td>
+        <td><%= ar.political_landscape%></td>
+        <td><%= ar.physical_condition%></td>
+        <td><%= ar.height%></td>
+        <td><%= ar.weight%></td>
+        <td><%= ar.contact_phone%></td>
+        <td><%= ar.graduation_time%></td>
+        <td><%= ar._school%></td>
+        <td><%= ar.major%></td>
+        <td><%= ar.highest_degree%></td>
+        <td><%= ar.id_card_number%></td>
+        <td><%= ar.permanent_address%></td>
+        <td><%= ar.live_address%></td>
+        <td><%= ar.mailbox%></td>
+        <td><%= ar.salary_expectation%></td>
+        <td><%= ar.arrival_time%></td>
+        <td>
+
+          <%= link_to '删除', {:controller => 'admin/staffinfo', :action => 'destroy', :id => "#{ar.id}"}%>
+        </td>
+        <td>
+          <%= link_to '修改', {:controller => 'admin/staffinfo', :action => 'edit', :id => "#{ar.id}"}%>
+        </td>
+      </tr>
+  <% end %>
+
+</table>
+

@@ -9,9 +9,15 @@ class  Admin::DepartmentinfoController < Admin::BaseController
 
   def create
     @article = Department.new(article_params)
-    @article.save
-    index
-    render 'index'
+    if  @article.save
+      index
+      render 'index'
+    else
+      new
+      render :new
+    end
+
+
   end
   def destroy
     @tcl = Department.find(params[:id])

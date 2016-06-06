@@ -57,8 +57,9 @@
 </style>
 
 <%= form_for(@article, url: {:controller => 'admin/staffinfo' ,:action => 'create'} ,html:{method: :post}) do |f| %>
-    <h4 align="center">人员登记</h4>
-<table border="1">
+    <h4 align="center">应聘人员登记</h4>
+
+<table border="1" align="center">
         <tr>
           <td class="td_style"><%= f.label :姓名%></td><td><%= f.text_field :name%></td>
           <td class="td_style"><%= f.label :性别%></td><td><%= f.text_field :gender%></td>
@@ -85,7 +86,7 @@
         </tr>
         <tr>
           <td colspan="2"><center><%= f.label :身份证号码%></center></td><td colspan="2"><%= f.text_field :id_card_number%></td>
-          <td colspan="2"><center><%= f.label :户籍地址%></center><td colspan="2"><%= f.text_field :permanent_address%></td>
+          <td colspan="2"><center><%= f.label :户籍地址%></center><td colspan="3"><%= f.text_field :permanent_address%></td>
         </tr>
         <tr>
           <td colspan="2"><center><%= f.label :现居住地址%></center><td colspan="2"><%= f.text_field :live_address%></td>
@@ -95,9 +96,33 @@
           <td colspan="2"><center><%= f.label :期望薪资%></center><td colspan="2"><%= f.text_field :salary_expectation%></td>
           <td colspan="2"><center><%= f.label :到岗时间%></center><td colspan="2"><%= f.text_field :arrival_time%></td>
         </tr>
+        <tr>
+          <td colspan="8"><h4 align="center">工作经历</h4></td>
+        </tr>
+          <tr>
+            <td class="jingli_style">起止年月</td>
+            <td class="jingli_style" colspan="1">工作单位</td>
+            <td class="jingli_style" colspan="1">岗位</td>
+            <td class="jingli_style">薪资</td>
+            <td class="jingli_style" colspan="1">离职原因</td>
+            <td class="jingli_style" colspan="2">证明人</td>
+            <td class="jingli_style" colspan="2">电话</td>
+          </tr>
 
+      <% for workexperience in @article.WorkExperience %>
+          <% fields_for "article[workexperience_attributes][]", workexperience do |p| %>
+          <tr>
+            <td class="jingli_style"><%= p.text_field :start_and%>-<%= p.text_field :end_date%></td>
+            <td class="jingli_style" colspan="1"><%= p.text_field :work_unit%></td>
+            <td class="yuan_style" colspan="1"><%= p.text_field :post%></td>
+            <td class="jingli_style"><%= p.text_field :salary%></td>
+            <td class="jingli_style" colspan="1"><%= p.text_field :reasons_for_leaving%></td>
+            <td class="jingli_style" colspan="2"><%= p.text_field :witness%></td>
+            <td class="jingli_style" colspan="2"><%= p.text_field :telephone%></td>
+          </tr>
+          <% end %>
+      <% end %>
 </table>
-
-    <% f.submit '提交'%>
+    <%= f.submit '提交' %>
 <% end %>
 
