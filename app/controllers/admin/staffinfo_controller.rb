@@ -9,6 +9,7 @@ class Admin::StaffinfoController < Admin::BaseController
 
   def create
     @article = EmployeeInfo.new(article_params)
+    
     if @article.save
     index
     render 'index'
