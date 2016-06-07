@@ -1,6 +1,6 @@
 class  Admin::DepartmentinfoController < Admin::BaseController
   def index
-    @article = Department.all
+    @articles = Department.all
   end
 
   def new

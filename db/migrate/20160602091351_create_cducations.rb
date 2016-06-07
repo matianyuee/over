@@ -7,7 +7,7 @@ class CreateCducations < ActiveRecord::Migration[5.0]
       t.string :major
       t.string :leaming_form
       t.string :qualifications_and_degree
-      t.integer :employee_id
+      t.integer :employee_info_id
 
       t.timestamps
     end

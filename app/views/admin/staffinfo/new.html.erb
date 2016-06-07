@@ -100,28 +100,25 @@
           <td colspan="8"><h4 align="center">工作经历</h4></td>
         </tr>
           <tr>
-            <td class="jingli_style">起止年月</td>
-            <td class="jingli_style" colspan="1">工作单位</td>
-            <td class="jingli_style" colspan="1">岗位</td>
+            <td class="jingli_style" colspan="2">起止年月</td>
+            <td class="jingli_style" >工作单位</td>
+            <td class="jingli_style" >岗位</td>
             <td class="jingli_style">薪资</td>
-            <td class="jingli_style" colspan="1">离职原因</td>
-            <td class="jingli_style" colspan="2">证明人</td>
-            <td class="jingli_style" colspan="2">电话</td>
+            <td class="jingli_style">离职原因</td>
+            <td class="jingli_style" >证明人</td>
+            <td class="jingli_style" >电话</td>
           </tr>
 
-      <% for workexperience in @article.WorkExperience %>
-          <% fields_for "article[workexperience_attributes][]", workexperience do |p| %>
           <tr>
-            <td class="jingli_style"><%= p.text_field :start_and%>-<%= p.text_field :end_date%></td>
-            <td class="jingli_style" colspan="1"><%= p.text_field :work_unit%></td>
-            <td class="yuan_style" colspan="1"><%= p.text_field :post%></td>
-            <td class="jingli_style"><%= p.text_field :salary%></td>
-            <td class="jingli_style" colspan="1"><%= p.text_field :reasons_for_leaving%></td>
-            <td class="jingli_style" colspan="2"><%= p.text_field :witness%></td>
-            <td class="jingli_style" colspan="2"><%= p.text_field :telephone%></td>
+            <td class="jingli_style"><input type="text" name="work_experience[][start_date]"></td><td><input type="text" name="work_experience[][start_date]"></td>
+            <td class="jingli_style"><input type="text" name="work_experience[][work_unit]"></td>
+            <td class="jingli_style"><input type="text" name="work_experience[][post]"></td>
+            <td class="jingli_style"><input type="text" name="work_experience[][salary]"></td>
+            <td class="jingli_style"><input type="text" name="work_experience[][witness]"></td>
+            <td class="jingli_style"><input type="text" name="work_experience[][witness]"></td>
+            <td class="jingli_style"><input type="text" name="work_experience[][telephone]"></td>
           </tr>
-          <% end %>
-      <% end %>
+
 </table>
     <%= f.submit '提交' %>
 <% end %>

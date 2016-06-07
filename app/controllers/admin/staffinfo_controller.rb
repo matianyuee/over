@@ -1,6 +1,6 @@
 class Admin::StaffinfoController < Admin::BaseController
   def index
-    @employee_info = EmployeeInfo.all
+    @employee_infos = EmployeeInfo.all
   end
 
   def new
@@ -9,7 +9,7 @@ class Admin::StaffinfoController < Admin::BaseController
 
   def create
     @article = EmployeeInfo.new(article_params)
-    if  @article.save
+    if @article.save
     index
     render 'index'
     else

@@ -9,7 +9,7 @@ class CreateWorkExperiences < ActiveRecord::Migration[5.0]
       t.string :reasons_for_leaving
       t.string :witness
       t.string :telephone
-      t.integer :employee_id
+      t.integer :employee_info_id
 
       t.timestamps
     end

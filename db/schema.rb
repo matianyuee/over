@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160602091419) do
     t.string   "major"
     t.string   "leaming_form"
     t.string   "qualifications_and_degree"
-    t.integer  "employee_id"
+    t.integer  "employee_info_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20160602091419) do
     t.string   "reasons_for_leaving"
     t.string   "witness"
     t.string   "telephone"
-    t.integer  "employee_id"
+    t.integer  "employee_info_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
