@@ -14,16 +14,67 @@
     })
   })
 
-
+  var ex_num= 0;
+  var count=0;
+  var count1=0;
   $(document).ready(function(){
     $("#zeng").click(function(){
+      ex_num+1;
+      count+=1;
+      $("#addtable").after(" <tr> <td class='jingli_style'><input type='text' name='work_experience['ex_num'][start_and]'></td><td><input type='text' name='work_experience[][end_date]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][work_unit]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][post]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][salary]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][witness]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][witness]'></td>"+
+         "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][telephone]'></td>"+"</tr>"
+      )
+    })
+    $("#jian").click(function(){
+      if(count>0){
+        $("#addtable").next().remove();
+      }
+      if(count<=0){
+        count+=1;
+      }
+      count-=1;
+    })
+  })
 
+  $(document).ready(function(){
+    $("#zeng1").click(function(){
+      ex_num+1;
+      count1+=1;
+      $("#addtable2").after("  <tr>"+
+         "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][start_and]'></td><td><input type='text' name='work_experience[][end_date]'></td>"+
+          "<td class='jingli_style' colspan='1'><input type='text' name='work_experience['ex_num'][telephone]'></td>"+
+          "<td class='yuan_style' colspan='2'><input type='text' name='work_experience['ex_num'][telephone]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][telephone]'></td>"+
+          "<td class='yuan_style' colspan='2'><input type='text' name='work_experience['ex_num'][telephone]'></td>"+
+          "</tr>"
+      )
+    })
+    $("#jian1").click(function(){
+      if(count1>0){
+        $("#addtable2").next().remove();
+      }
+      if(count1<=0){
+        count1+=1;
+      }
+      count1-=1;
     })
   })
 </script>
 
 
 <style>
+
+  #addtable2{
+    display: none;
+  }
+  #addtable{
+    display: none;
+  }
   .td_style{
     width: 80px;
     text-align: center;
@@ -93,7 +144,7 @@
         </tr>
         <tr>
           <td colspan="2"><center><%= f.label :身份证号码%></center></td><td colspan="2" class="yuan_style" ><%= f.text_field :id_card_number%></td>
-          <td colspan="2"><center><%= f.label :户籍地址%></center><td colspan="3" class="yuan_style"><%= f.text_field :permanent_address%></td>
+          <td colspan="2"><center><%= f.label :户籍地址%></center><td colspan="2" class="yuan_style"><%= f.text_field :permanent_address%></td>
         </tr>
         <tr>
           <td colspan="2"><center><%= f.label :现居住地址%></center><td colspan="2" class="yuan_style"><%= f.text_field :live_address%></td>
@@ -113,7 +164,7 @@
             <td class="jingli_style">薪资</td>
             <td class="jingli_style">离职原因</td>
             <td class="jingli_style" >证明人</td>
-            <td class="jingli_style" >电话</td><td><a href="#" >-</a></td>
+            <td class="jingli_style" >电话</td><td id="jian"><a href="#" >-</a></td>
           </tr>
 
           <tr>
@@ -125,8 +176,12 @@
             <td class="jingli_style"><input type="text" name="work_experience[][witness]"></td>
             <td class="jingli_style"><input type="text" name="work_experience[][telephone]"></td><td id="zeng"><a href="#" >+</a></td>
           </tr>
+          <tr id="addtable">
 
-          <tr>
+          </tr>
+
+
+          <tr id="stop">
             <td colspan="8"><h4 align="center">教育情况</h4></td>
           </tr>
           <tr>
@@ -134,14 +189,17 @@
             <td class="jingli_style" colspan="1"><%= f.label :就读学校%></td>
             <td class="jingli_style" colspan="2"><%= f.label :专业%></td>
             <td class="jingli_style"><%= f.label :学习形式%></td>
-            <td class="jingli_style" colspan="2"><%= f.label :所获学历及学位%></td><td>-</td>
+            <td class="jingli_style" colspan="2"><%= f.label :所获学历及学位%></td><td id="jian1"><a href="#">-</a></td>
           </tr>
           <tr>
             <td class="jingli_style"><input type="text" name="work_experience[][start_and]"></td><td><input type="text" name="work_experience[][end_date]"></td>
             <td class="jingli_style" colspan="1"><input type="text" name="work_experience[][telephone]"></td>
             <td class="yuan_style" colspan="2"><input type="text" name="work_experience[][telephone]"></td>
             <td class="jingli_style"><input type="text" name="work_experience[][telephone]"></td>
-            <td class="yuan_style" colspan="2"><input type="text" name="work_experience[][telephone]"></td><td >+</td>
+            <td class="yuan_style" colspan="2"><input type="text" name="work_experience[][telephone]"></td><td id="zeng1"><a href="#" >+</a></td>
+          </tr>
+          <tr id="addtable2">
+
           </tr>
           <tr>
             <td class="jingli_style" colspan="2" align="center">熟练使用办公软件</td>
