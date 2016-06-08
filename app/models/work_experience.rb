@@ -1,3 +1,3 @@
 class WorkExperience < ApplicationRecord
-  belongs_to :EmployeeInfo
+  belongs_to :employee_info
 end

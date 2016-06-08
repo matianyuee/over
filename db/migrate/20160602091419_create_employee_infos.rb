@@ -30,8 +30,6 @@ class CreateEmployeeInfos < ActiveRecord::Migration[5.0]
       t.datetime :date_of_application
       t.string :office_software
       t.string :reasons_for_applying
-      t.integer :education_id
-      t.integer :work_experience_id
 
       t.timestamps
     end

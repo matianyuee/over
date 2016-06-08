@@ -8,8 +8,8 @@ class Admin::StaffinfoController < Admin::BaseController
   end
 
   def create
-    @article = EmployeeInfo.new(article_params)
-    if @article.save
+    @article = EmployeeInfo.create(article_params)
+    if @article
       redirect_to :action=>"index"
     else
       render :new
@@ -17,14 +17,18 @@ class Admin::StaffinfoController < Admin::BaseController
   end
   def destroy
     @employee_info = EmployeeInfo.find(params[:id])
-    @employee_info.destroy
-    redirect_to :action=>"index"
+      @employee_info.destroy
+       redirect_to :action=>"index"
+
 
   end
   def update
     @employee_info = EmployeeInfo.find(params[:id])
-    @employee_info.update(article_params)
-    redirect_to :action=>"index"
+     @employee_info.update(article_params)
+      redirect_to :action=>"index"
+
+
+
   end
   def edit
     @employee_info = EmployeeInfo.find(params[:id])
@@ -34,9 +38,11 @@ class Admin::StaffinfoController < Admin::BaseController
   end
 
   def article_params
-    work_experiences = [:start_and,:end_date,:work_unit,:post,:salary,:witness,:reasons_for_leaving,:telephone]
-
-    params.require(:employee_info).permit(:name,:gender,:birth_date,:marriage,:nation,:origin,:political_landscape,:physical_condition,:height,:weight,:contact_phone,:graduation_time,:_school,:major,:highest_degree,:id_card_number,:permanent_address,:live_address,:mailbox,:salary_expectation,:arrival_time,:employee_info_attributes => work_experiences )
+    work_experiences = [:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone,:employee_info_id]
+    cducation = [:start_and,:end_date,:school,:major,:leaming_form,:qualifications_and_degree,:employee_info_id]
+    params.require(:employee_info).permit(:name,:gender,:birth_date,:marriage,:nation,:origin,:political_landscape,:physical_condition,:height,:weight,:contact_phone,:graduation_time,:_school,:major,:highest_degree,:id_card_number,:permanent_address,:live_address,:mailbox,:salary_expectation,:arrival_time,
+                                          :work_experiences_attributes => work_experiences ,
+                                          :cducations_attributes => cducation)
   end
 
 end
