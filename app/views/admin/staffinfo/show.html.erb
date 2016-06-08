@@ -3,7 +3,7 @@
     margin: 0 auto;
   }
 </style>
-<h4 align="center">应聘人员列表</h4>
+<h4 align="center">人员详情</h4>
 
 <table id="zhon" border="1px">
 
@@ -29,11 +29,10 @@
     <td>邮箱</td>
     <td>期望薪资</td>
     <td>到岗时间</td>
-    <td>操作1</td>
-    <td>操作2</td>
+
   </tr>
 
-  <% @employee_infos.each do |ar| %>
+  <% @employee_info.each do |ar| %>
       <tr>
         <td><%= ar.name%></td>
         <td><%= ar.gender%></td>
@@ -56,15 +55,7 @@
         <td><%= ar.mailbox%></td>
         <td><%= ar.salary_expectation%></td>
         <td><%= ar.arrival_time%></td>
-        <td>
-
-          <%= link_to '删除', {:controller => 'admin/staffinfo', :action => 'destroy', :id => "#{ar.id}"}%>
-        </td>
-        <td>
-          <%= link_to '修改', {:controller => 'admin/staffinfo', :action => 'edit', :id => "#{ar.id}"}%>
-        </td>
       </tr>
   <% end %>
 
 </table>
-

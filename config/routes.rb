@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'workexperience/new'
-
-  get 'staffinfo/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => redirect('/admin/dashboard')
   get  "admin/dashboard" => "admin/dashboard#index", :as => 'user_root' # after sign in on admin page
@@ -16,6 +13,7 @@ Rails.application.routes.draw do
     resources :staffinfo do
       member do
         get 'destroy'
+        get 'show'
       end
     end
     resources :workexperience

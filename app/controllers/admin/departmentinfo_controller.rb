@@ -10,8 +10,7 @@ class  Admin::DepartmentinfoController < Admin::BaseController
   def create
     @article = Department.new(article_params)
     if  @article.save
-      index
-      render 'index'
+      redirect_to :action=>"index"
     else
       new
       render :new
@@ -22,15 +21,13 @@ class  Admin::DepartmentinfoController < Admin::BaseController
   def destroy
     @tcl = Department.find(params[:id])
     @tcl.destroy
-    index
-    render :index
+    redirect_to :action=>"index"
 
   end
   def update
     @up = Department.find(params[:id])
     @up.update(article_params)
-    index
-    render 'index'
+    redirect_to :action=>"index"
   end
   def edit
     @up = Department.find(params[:id])

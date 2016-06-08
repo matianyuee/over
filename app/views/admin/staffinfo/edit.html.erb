@@ -98,14 +98,77 @@
       <tr>
         <td colspan="8"><h4 align="center">工作经历</h4></td>
       </tr>
+      <%= fields_for :work_experiences  do |ww| %>
+          <tr>
+            <td class="jingli_style" colspan="2"><%= ww.label :起止年月%></td>
+            <td class="jingli_style" ><%= ww.label :工作单位%></td>
+            <td class="jingli_style" ><%= ww.label :岗位%></td>
+            <td class="jingli_style"><%= ww.label :薪资%></td>
+            <td class="jingli_style"><%= ww.label :离职原因%></td>
+            <td class="jingli_style" ><%= ww.label :证明人%></td>
+            <td class="jingli_style" ><%= ww.label :电话%><td id="jian">
+          </tr>
+          <tr>
+            <td class="jingli_style"><%= ww.date_field :start_and%></td><td><%= ww.date_field :end_date%></td>
+            <td class="jingli_style"><%= ww.text_field :work_unit%></td>
+            <td class="jingli_style"><%= ww.text_field :post%></td>
+            <td class="jingli_style"><%= ww.text_field :salary%></td>
+            <td class="jingli_style"><%= ww.text_field :reasons_for_leaving%></td>
+            <td class="jingli_style"><%= ww.text_field :witness%></td>
+            <td class="jingli_style"><%= ww.text_field :telephone%></td><td id="zeng">
+          </tr>
+          <tr id="addtable"></tr>
+      <% end %>
+      <tr id="stop">
+        <td colspan="8"><h4 align="center">教育情况</h4></td>
+      </tr>
+      <%= fields_for :cducations  do |cc| %>
+          <tr>
+            <td class="jingli_style" colspan="2"><%= cc.label :起止年月%></td>
+            <td class="jingli_style" colspan="1"><%= cc.label :就读学校%></td>
+            <td class="jingli_style" colspan="2"><%= cc.label :专业%></td>
+            <td class="jingli_style"><%= f.label :学习形式%></td>
+            <td class="jingli_style" colspan="2"><%= cc.label :所获学历及学位%></td>
+          </tr>
+
+          <tr>
+            <td class="jingli_style"><%= cc.date_field :start_and%></td><td><%= cc.date_field :end_date%></td>
+            <td class="jingli_style" colspan="1"><%= cc.text_field :school%></td>
+            <td class="yuan_style" colspan="2"><%= cc.text_field :major%></td>
+            <td class="jingli_style"><%= cc.text_field :leaming_form%></td>
+            <td class="yuan_style" colspan="2"><%= cc.text_field :qualifications_and_degree%></td>
+          </tr>
+          <tr id="addtable2"> </tr>
+      <% end%>
+
       <tr>
-        <td class="jingli_style">起止年月</td>
-        <td class="jingli_style" colspan="1">工作单位</td>
-        <td class="jingli_style" colspan="1">岗位</td>
-        <td class="jingli_style">薪资</td>
-        <td class="jingli_style" colspan="1">离职原因</td>
-        <td class="jingli_style" colspan="2">证明人</td>
-        <td class="jingli_style" colspan="2">电话</td>
+        <td class="jingli_style" colspan="2" align="center"><%= f.label :熟练使用办公软件%></td>
+        <td colspan="6">
+          <label><%= f.check_box 'office_software'%> word</label>
+          <label><%= f.check_box 'office_software'%>excel</label>
+          <label><%= f.check_box 'office_software'%>powerpoint</label>
+          <label><%= f.check_box 'office_software'%>wps</label>
+          <label><%= f.check_box 'office_software'%>visio</label>
+          <label><input id="text_office_checkbox" name="Fruit" type="checkbox" value="true" />其他</label>
+          <span id="text_office"><%= f.text_field :office_software%></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="jingli_style">应聘理由:</td>
+        <td colspan="7">
+          <label><%= f.check_box 'reasons_for_applying'%>高度认可互联网大趋势</label>
+          <label><%= f.check_box 'reasons_for_applying'%>了解精细化学品行业供应链</label>
+          <label><%= f.check_box 'reasons_for_applying'%>了解B2B电商模式</label>
+          <label><%= f.check_box 'reasons_for_applying'%>专业对口</label>
+          <label><%= f.check_box 'reasons_for_applying'%>寻一个稳定的工作</label>
+          <label><%= f.check_box 'reasons_for_applying'%>寻一个可以发展的平台</label>
+          <br>
+          <label><input id="text_office_checkbox2" name="Fruit" type="checkbox" value="true" />其他(请说明)</label>
+          <span id="text_office2"><%= f.text_field :reasons_for_applying%></span>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.label "最能概括自己的3个字:"%></td><td class="yuan_style" colspan="7"><%= f.text_field :self_evaluation%></td>
       </tr>
 
     </table>
