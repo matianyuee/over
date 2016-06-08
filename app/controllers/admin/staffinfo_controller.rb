@@ -35,7 +35,8 @@ class Admin::StaffinfoController < Admin::BaseController
 
   def article_params
     work_experiences = [:start_and,:end_date,:work_unit,:post,:salary,:witness,:reasons_for_leaving,:telephone]
-    params.require(:employee_info).permit(:name,:gender,:birth_date,:marriage,:nation,:origin,:political_landscape,:physical_condition,:height,:weight,:contact_phone,:graduation_time,:_school,:major,:highest_degree,:id_card_number,:permanent_address,:live_address,:mailbox,:salary_expectation,:arrival_time,:EmployeeInfo_attributes => work_experiences )
+
+    params.require(:employee_info).permit(:name,:gender,:birth_date,:marriage,:nation,:origin,:political_landscape,:physical_condition,:height,:weight,:contact_phone,:graduation_time,:_school,:major,:highest_degree,:id_card_number,:permanent_address,:live_address,:mailbox,:salary_expectation,:arrival_time,:employee_info_attributes => work_experiences )
   end
 
 end

@@ -62,7 +62,7 @@
       <tr>
         <td class="td_style"><%= f.label :姓名%></td><td><%= f.text_field :name%></td>
         <td class="td_style"><%= f.label :性别%></td><td><%= f.text_field :gender%></td>
-        <td class="td_style"><%= f.label :出生日期%></td><td><%= f.text_field :birth_date%></td>
+        <td class="td_style"><%= f.label :出生日期%></td><td><%= f.date_field :birth_date%></td>
         <td class="td_style"><%= f.label :婚育状况%></td><td><%= f.text_field :marriage%></td>
       </tr>
       <tr>
@@ -93,7 +93,7 @@
       </tr>
       <tr>
         <td colspan="2"><center><%= f.label :期望薪资%></center><td colspan="2"><%= f.text_field :salary_expectation%></td>
-        <td colspan="2"><center><%= f.label :到岗时间%></center><td colspan="2"><%= f.text_field :arrival_time%></td>
+        <td colspan="2"><center><%= f.label :到岗时间%></center><td colspan="2"><%= f.date_field :arrival_time%></td>
       </tr>
       <tr>
         <td colspan="8"><h4 align="center">工作经历</h4></td>
@@ -106,7 +106,7 @@
             <td class="jingli_style"><%= ww.label :薪资%></td>
             <td class="jingli_style"><%= ww.label :离职原因%></td>
             <td class="jingli_style" ><%= ww.label :证明人%></td>
-            <td class="jingli_style" ><%= ww.label :电话%><td id="jian">
+            <td class="jingli_style" ><%= ww.label :电话%><td id="jian"><a href="#" >-</a></td>
           </tr>
           <tr>
             <td class="jingli_style"><%= ww.date_field :start_and%></td><td><%= ww.date_field :end_date%></td>
@@ -115,7 +115,7 @@
             <td class="jingli_style"><%= ww.text_field :salary%></td>
             <td class="jingli_style"><%= ww.text_field :reasons_for_leaving%></td>
             <td class="jingli_style"><%= ww.text_field :witness%></td>
-            <td class="jingli_style"><%= ww.text_field :telephone%></td><td id="zeng">
+            <td class="jingli_style"><%= ww.text_field :telephone%></td><td id="zeng"><a href="#" >+</a></td>
           </tr>
           <tr id="addtable"></tr>
       <% end %>
@@ -128,7 +128,7 @@
             <td class="jingli_style" colspan="1"><%= cc.label :就读学校%></td>
             <td class="jingli_style" colspan="2"><%= cc.label :专业%></td>
             <td class="jingli_style"><%= f.label :学习形式%></td>
-            <td class="jingli_style" colspan="2"><%= cc.label :所获学历及学位%></td>
+            <td class="jingli_style" colspan="2"><%= cc.label :所获学历及学位%></td><td id="jian1"><a href="#">-</a></td>
           </tr>
 
           <tr>
@@ -136,7 +136,7 @@
             <td class="jingli_style" colspan="1"><%= cc.text_field :school%></td>
             <td class="yuan_style" colspan="2"><%= cc.text_field :major%></td>
             <td class="jingli_style"><%= cc.text_field :leaming_form%></td>
-            <td class="yuan_style" colspan="2"><%= cc.text_field :qualifications_and_degree%></td>
+            <td class="yuan_style" colspan="2"><%= cc.text_field :qualifications_and_degree%></td></td>
           </tr>
           <tr id="addtable2"> </tr>
       <% end%>
