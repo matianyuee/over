@@ -21,13 +21,13 @@
     $("#zeng").click(function(){
       ex_num+1;
       count+=1;
-      $("#addtable").after(" <tr> <td class='jingli_style'><input type='text' name='work_experience['ex_num'][start_and]'></td><td><input type='text' name='work_experience[][end_date]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experiences["+ex_num+"][work_unit]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experiences["+ex_num+"][post]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experiences["+ex_num+"][salary]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experiences["+ex_num+"][witness]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experiences["+ex_num+"][witness]'></td>"+
-         "<td class='jingli_style'><input type='text' name='work_experiences["+ex_num+"][telephone]'></td>"+"</tr>"
+      $("#addtable").after(" <tr> <td class='jingli_style'><input type='date' name='work_experience["+ex_num+"][start_and]'></td><td><input type='date' name='work_experience["+ex_num+"][end_date]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][work_unit]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][post]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][salary]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][witness]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][witness]'></td>"+
+         "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][telephone]'></td>"+"</tr>"
       )
     })
     $("#jian").click(function(){
@@ -46,11 +46,11 @@
       ex_num+1;
       count1+=1;
       $("#addtable2").after("  <tr>"+
-         "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][start_and]'></td><td><input type='text' name='work_experience[][end_date]'></td>"+
-          "<td class='jingli_style' colspan='1'><input type='text' name='work_experience['ex_num'][telephone]'></td>"+
-          "<td class='yuan_style' colspan='2'><input type='text' name='work_experience['ex_num'][telephone]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experience['ex_num'][telephone]'></td>"+
-          "<td class='yuan_style' colspan='2'><input type='text' name='work_experience['ex_num'][telephone]'></td>"+
+         "<td class='jingli_style'><input type='date' name='cducations["+ex_num+"][start_and]'></td><td><input type='date' name='cducations["+ex_num+"][end_date]'></td>"+
+          "<td class='jingli_style' colspan='1'><input type='text' name='cducations["+ex_num+"][school]'></td>"+
+          "<td class='yuan_style' colspan='2'><input type='text' name='cducations["+ex_num+"][major]'></td>"+
+          "<td class='jingli_style'><input type='text' name='cducations["+ex_num+"][leaming_form]'></td>"+
+          "<td class='yuan_style' colspan='2'><input type='text' name='cducations["+ex_num+"][qualifications_and_degree]'></td>"+
           "</tr>"
       )
     })
@@ -160,7 +160,7 @@
         <tr>
           <td colspan="8"><h4 align="center">工作经历</h4></td>
         </tr>
-          <%= fields_for :work_experience  do |ww| %>
+          <%= f.fields_for :work_experience  do |ww| %>
           <tr>
             <td class="jingli_style" colspan="2"><%= ww.label :起止年月%></td>
             <td class="jingli_style" ><%= ww.label :工作单位%></td>
@@ -184,7 +184,7 @@
           <tr id="stop">
             <td colspan="8"><h4 align="center">教育情况</h4></td>
           </tr>
-          <%= fields_for :cducations  do |cc| %>
+          <%= f.fields_for :cducation  do |cc| %>
           <tr>
             <td class="jingli_style" colspan="2"><%= cc.label :起止年月%></td>
             <td class="jingli_style" colspan="1"><%= cc.label :就读学校%></td>

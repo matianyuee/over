@@ -8,7 +8,14 @@ class Admin::StaffinfoController < Admin::BaseController
   end
 
   def create
-    @article = EmployeeInfo.create(article_params)
+    work_attributes = [:id,:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone]
+    cduet_attributes = [:id,:start_and,:end_date,:school,:major,:leaming_form,:qualifications_and_degree]
+      @article = EmployeeInfo.create(params.require(:employee_info).permit(:name,
+                                                                        :gender,:birth_date,:marriage,:nation,:origin,:political_landscape,
+                                                                        :physical_condition,:height,:weight,:contact_phone,:graduation_time,
+                                                                        :_school,:major,:highest_degree,:id_card_number,:permanent_address,
+                                                                        :live_address,:mailbox,:salary_expectation,:arrival_time,:work_params,
+                                                                        :work_experiences_attributes => work_attributes , :cducations_attributes => cduet_attributes))
     if @article
      # params[:work_experience].each { |pars|
       #  @workExperience = WorkExperience.new(pars.permit(:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone))
@@ -20,17 +27,17 @@ class Admin::StaffinfoController < Admin::BaseController
          # @cducation.employee_info_id = @article.id
           #@cducation.save
        # }
-      @work_params = WorkExperience.new(work_params)
-      @work_params.employee_info_id = @article.id
-      @work_params.save
-      @cducation = Cducation.new(cdudetion_params)
-      @cducation.employee_info_id =@article.id
-      @cducation.save
-      if @work_params && @cducation
+     # @work_params = WorkExperience.new(work_params)
+     # @work_params.employee_info_id = @article.id
+     # @work_params.save
+     # @cducation = Cducation.new(cdudetion_params)
+      #@cducation.employee_info_id =@article.id
+      #@cducation.save
+      #if @work_params && @cducation
         redirect_to :action=>"index"
-      else
-        render :new
-      end
+     # else
+     #   render :new
+     # end
 
     else
       render :new
@@ -44,6 +51,7 @@ class Admin::StaffinfoController < Admin::BaseController
 
   end
   def update
+
     @employee_info = EmployeeInfo.find(params[:id])
       work = [:id,:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone]
       cduet = [:id,:start_and,:end_date,:school,:major,:leaming_form,:qualifications_and_degree]
