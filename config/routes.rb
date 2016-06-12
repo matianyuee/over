@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         get 'destroy'
         get 'show'
       end
+
     end
     resources :workexperience
   end

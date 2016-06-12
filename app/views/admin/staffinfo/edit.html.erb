@@ -56,7 +56,7 @@
 
 </style>
 
-<%= form_for(@employee_info, url: {:controller => 'admin/staffinfo' ,:action => 'update'} ,html:{method: :put}) do |f| %>
+<%= form_for(@employee, url: {:controller => 'admin/staffinfo' ,:action => 'update'} ,html:{method: :put}) do |f| %>
     <h4 align="center">人员登记</h4>
     <table border="1" align="center">
       <tr>
@@ -98,7 +98,7 @@
       <tr>
         <td colspan="8"><h4 align="center">工作经历</h4></td>
       </tr>
-      <%= fields_for :work_experiences  do |ww| %>
+      <%= f.fields_for :work_experiences  do |ww| %>
           <tr>
             <td class="jingli_style" colspan="2"><%= ww.label :起止年月%></td>
             <td class="jingli_style" ><%= ww.label :工作单位%></td>
@@ -106,7 +106,7 @@
             <td class="jingli_style"><%= ww.label :薪资%></td>
             <td class="jingli_style"><%= ww.label :离职原因%></td>
             <td class="jingli_style" ><%= ww.label :证明人%></td>
-            <td class="jingli_style" ><%= ww.label :电话%><td id="jian"><a href="#" >-</a></td>
+            <td class="jingli_style" ><%= ww.label :电话%>
           </tr>
           <tr>
             <td class="jingli_style"><%= ww.date_field :start_and%></td><td><%= ww.date_field :end_date%></td>
@@ -115,20 +115,20 @@
             <td class="jingli_style"><%= ww.text_field :salary%></td>
             <td class="jingli_style"><%= ww.text_field :reasons_for_leaving%></td>
             <td class="jingli_style"><%= ww.text_field :witness%></td>
-            <td class="jingli_style"><%= ww.text_field :telephone%></td><td id="zeng"><a href="#" >+</a></td>
+            <td class="jingli_style"><%= ww.text_field :telephone%>
           </tr>
           <tr id="addtable"></tr>
       <% end %>
       <tr id="stop">
         <td colspan="8"><h4 align="center">教育情况</h4></td>
       </tr>
-      <%= fields_for :cducations  do |cc| %>
+      <%= f.fields_for :cducations  do |cc| %>
           <tr>
             <td class="jingli_style" colspan="2"><%= cc.label :起止年月%></td>
             <td class="jingli_style" colspan="1"><%= cc.label :就读学校%></td>
             <td class="jingli_style" colspan="2"><%= cc.label :专业%></td>
             <td class="jingli_style"><%= f.label :学习形式%></td>
-            <td class="jingli_style" colspan="2"><%= cc.label :所获学历及学位%></td><td id="jian1"><a href="#">-</a></td>
+            <td class="jingli_style" colspan="2"><%= cc.label :所获学历及学位%></td>
           </tr>
 
           <tr>
@@ -140,6 +140,7 @@
           </tr>
           <tr id="addtable2"> </tr>
       <% end%>
+
 
       <tr>
         <td class="jingli_style" colspan="2" align="center"><%= f.label :熟练使用办公软件%></td>
@@ -171,7 +172,9 @@
         <td><%= f.label "最能概括自己的3个字:"%></td><td class="yuan_style" colspan="7"><%= f.text_field :self_evaluation%></td>
       </tr>
 
+
+      <tr><td colspan="4"  align="center"><%= f.submit '修改'%></td><td colspan="4" align="center"> <%= link_to '返回' , {:controller => 'admin/staffinfo' ,:action => 'index'}%></td></tr>
     </table>
-    <%= f.submit '修改'%><%= link_to '返回' , {:controller => 'admin/staffinfo' ,:action => 'index'}%>
+
 <% end %>
 
