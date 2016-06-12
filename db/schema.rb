@@ -60,8 +60,6 @@ ActiveRecord::Schema.define(version: 20160602091419) do
     t.datetime "date_of_application"
     t.string   "office_software"
     t.string   "reasons_for_applying"
-    t.integer  "education_id"
-    t.integer  "work_experience_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end

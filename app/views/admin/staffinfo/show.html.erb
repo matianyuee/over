@@ -41,14 +41,14 @@
       <tr>
         <td colspan="8"><h4 align="center">工作经历</h4></td>
       </tr>
-      <% @work_params.each do |ww| %>
+       <% @work_params.each do |ww| %>
           <tr>
-            <td class="jingli_style" colspan="2"><%= :起止年月%></td>
-            <td class="jingli_style" ><%=  :工作单位%></td>
-            <td class="jingli_style" ><%=  :岗位%></td>
+            <td class="jingli_style" colspan="2" align="center"><%= :起止年月%></td>
+            <td class="jingli_style" ><%= :工作单位%></td>
+            <td class="jingli_style" ><%= :岗位%></td>
             <td class="jingli_style"><%= :薪资%></td>
             <td class="jingli_style"><%=  :离职原因%></td>
-            <td class="jingli_style" ><%= :证明人%></td>
+            <td class="jingli_style" ><%=  :证明人%></td>
             <td class="jingli_style" ><%=  :电话%>
           </tr>
           <tr>
@@ -58,20 +58,20 @@
             <td class="jingli_style"><%= ww.salary%></td>
             <td class="jingli_style"><%= ww.reasons_for_leaving%></td>
             <td class="jingli_style"><%= ww.witness%></td>
-            <td class="jingli_style"><%= ww.telephone%></td>
+            <td class="jingli_style"><%= ww.telephone%>
           </tr>
           <tr id="addtable"></tr>
       <% end %>
       <tr id="stop">
         <td colspan="8"><h4 align="center">教育情况</h4></td>
       </tr>
-      <% @cducation.each do |cc| %>
+    <% @cducation.each do |cc| %>
           <tr>
-            <td class="jingli_style" colspan="2"><%=:起止年月%></td>
-            <td class="jingli_style" colspan="1"><%=  :就读学校%></td>
-            <td class="jingli_style" colspan="2"><%= :专业%></td>
-            <td class="jingli_style"><%= :学习形式%></td>
-            <td class="jingli_style" colspan="2"><%= :所获学历及学位%></td>
+            <td class="jingli_style" colspan="2" align="center"><%=  :起止年月%></td>
+            <td class="jingli_style" colspan="1"><%= :就读学校%></td>
+            <td class="jingli_style" colspan="2"><%=  :专业%></td>
+            <td class="jingli_style"><%=  :学习形式%></td>
+            <td class="jingli_style" colspan="2"><%=  :所获学历及学位%></td>
           </tr>
 
           <tr>
@@ -79,11 +79,10 @@
             <td class="jingli_style" colspan="1"><%= cc.school%></td>
             <td class="yuan_style" colspan="2"><%= cc.major%></td>
             <td class="jingli_style"><%= cc.leaming_form%></td>
-            <td class="yuan_style" colspan="2"><%= cc.qualifications_and_degree%></td>
+            <td class="yuan_style" colspan="2"><%= cc.qualifications_and_degree%></td></td>
           </tr>
           <tr id="addtable2"> </tr>
       <% end%>
-
       <tr>
         <td class="jingli_style" colspan="2" align="center"><%= :熟练使用办公软件%></td>
         <td colspan="6">
