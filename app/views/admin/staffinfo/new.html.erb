@@ -160,7 +160,7 @@
         <tr>
           <td colspan="8"><h4 align="center">工作经历</h4></td>
         </tr>
-          <%= f.fields_for :work_experience  do |ww| %>
+          <%= fields_for :work_experience  do |ww| %>
           <tr>
             <td class="jingli_style" colspan="2"><%= ww.label :起止年月%></td>
             <td class="jingli_style" ><%= ww.label :工作单位%></td>
@@ -184,7 +184,7 @@
           <tr id="stop">
             <td colspan="8"><h4 align="center">教育情况</h4></td>
           </tr>
-          <%= f.fields_for :cducation  do |cc| %>
+          <%= fields_for :cducations  do |cc| %>
           <tr>
             <td class="jingli_style" colspan="2"><%= cc.label :起止年月%></td>
             <td class="jingli_style" colspan="1"><%= cc.label :就读学校%></td>

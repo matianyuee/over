@@ -101,8 +101,9 @@
       </tr>
 
       <tr>
-          <td colspan="4" align="center"><%= link_to '返回' , :controller => 'admin/staffinfo' , :action => 'index'%></td>
-        <td  colspan="4" align="center"><%= link_to '修改' , :controller => 'admin/staffinfo' , :action => 'edit'%></td>
+          <td colspan="2" align="center"><%= link_to '返回' , :controller => 'admin/staffinfo' , :action => 'index'%></td>
+        <td  colspan="3" align="center"><%= link_to '修改' , :controller => 'admin/staffinfo' , :action => 'edit'%></td>
+        <td colspan="3" align="center"> <%= link_to '删除', {:controller => 'admin/staffinfo', :action => 'destroy', :id => "#{@employee_info.id}"}%></td>
       </tr>
     </table>
 

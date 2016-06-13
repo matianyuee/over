@@ -53,6 +53,9 @@
     width: 81%;
     display: none;
   }
+  #padding{
+    padding-left: 25px;
+  }
 
 </style>
 
@@ -61,7 +64,7 @@
     <table border="1" align="center">
       <tr>
         <td class="td_style"><%= f.label :姓名%></td><td><%= f.text_field :name%></td>
-        <td class="td_style"><%= f.label :性别%></td><td><%= f.text_field :gender%></td>
+        <td class="td_style"><%= f.label :性别%></td></td><td id="padding"><%= f.radio_button("gender", "男") %>男<%= f.radio_button("gender", "女") %>女</td>
         <td class="td_style"><%= f.label :出生日期%></td><td><%= f.date_field :birth_date%></td>
         <td class="td_style"><%= f.label :婚育状况%></td><td><%= f.text_field :marriage%></td>
       </tr>
@@ -78,7 +81,7 @@
         <td class="td_style" colspan="2">
       </tr>
       <tr>
-        <td class="td_style"><%= f.label :毕业时间%></td><td><%= f.text_field :graduation_time%></td>
+        <td class="td_style"><%= f.label :毕业时间%></td><td><%= f.date_field :graduation_time%></td>
         <td class="td_style"><%= f.label :毕业院校%></td><td><%= f.text_field :_school%></td>
         <td class="td_style"><%= f.label :专业%></td><td><%= f.text_field :major%></td>
         <td class="td_style"><%= f.label :最高学历%></td><td><%= f.text_field :highest_degree%></td>
@@ -89,7 +92,7 @@
       </tr>
       <tr>
         <td colspan="2"><center><%= f.label :现居住地址%></center><td colspan="2"><%= f.text_field :live_address%></td>
-        <td colspan="2"><center><%= f.label :邮箱%></center><td colspan="2"><%= f.text_field :mailbox%></td>
+        <td colspan="2"><center><%= f.label :邮箱%></center><td colspan="2"><%= f.email_field :mailbox%></td>
       </tr>
       <tr>
         <td colspan="2"><center><%= f.label :期望薪资%></center><td colspan="2"><%= f.text_field :salary_expectation%></td>
