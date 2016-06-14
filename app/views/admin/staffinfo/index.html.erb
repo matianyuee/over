@@ -3,15 +3,17 @@
     margin: 0 auto;
   }
 </style>
+
 <h4 align="center">应聘人员列表</h4>
 
 <table id="zhon" border="1px">
 
   <tr>
     <td>姓名</td>
-    <td>身份证号码</td>
-    <td>专业</td>
-    <td>联系电话</td>
+    <td>部门</td>
+    <td>职位</td>
+    <td>电话</td>
+    <td>状态</td>
     <td>操作</td>
 
   </tr>
@@ -19,13 +21,13 @@
   <% @employee_infos.each do |ar| %>
       <tr>
         <td><%= ar.name%></td>
+        <td><%= ar.department_id%></td>
 
-        <td><%= ar.id_card_number%></td>
-        <td><%= ar.major%></td>
+        <td><%= ar.position_id%></td>
         <td><%= ar.contact_phone%></td>
+        <td><%= ar.state_id%></td>
         <td>
           <%= link_to '详情信息', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}"}%>
-
         </td>
       </tr>
   <% end %>

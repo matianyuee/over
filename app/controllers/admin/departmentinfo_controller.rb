@@ -37,7 +37,7 @@ class  Admin::DepartmentinfoController < Admin::BaseController
   end
 
   def article_params
-    params.require(:department).permit(:position)
+    params.require(:department).permit(:positionName)
   end
 
 end

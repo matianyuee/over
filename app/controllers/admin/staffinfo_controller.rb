@@ -1,10 +1,17 @@
 class Admin::StaffinfoController < Admin::BaseController
   def index
     @employee_infos = EmployeeInfo.all
+    @position = Position.all
   end
 
   def new
     @article = EmployeeInfo.new
+    @department = Department.all
+
+  end
+
+  def groupleader
+
   end
 
   def create
@@ -60,6 +67,7 @@ class Admin::StaffinfoController < Admin::BaseController
                                                                 :physical_condition,:height,:weight,:contact_phone,:graduation_time,
                                                                 :_school,:major,:highest_degree,:id_card_number,:permanent_address,
                                                                 :live_address,:mailbox,:salary_expectation,:arrival_time,:work_params,
+                                                                :self_evaluation,:reasons_for_applying,:office_software,:department_id,
                                                                 :work_experiences_attributes => work , :cducations_attributes => cduet))
       redirect_to :action=>"show"
 
@@ -68,9 +76,11 @@ class Admin::StaffinfoController < Admin::BaseController
   end
   def edit
     @employee = EmployeeInfo.find(params[:id])
+    @department = Department.all
   end
   def show
     @employee_info = EmployeeInfo.find(params[:id])
+    @department = Department.all
     @work_params = WorkExperience.find_by_sql("select work_experiences.* from employee_infos inner join work_experiences on employee_infos.id = work_experiences.employee_info_id where employee_infos.id="+params[:id])
     @cducation = Cducation.find_by_sql("select cducations.* from employee_infos inner join cducations on employee_infos.id = cducations.employee_info_id where employee_infos.id="+params[:id]);
   end
@@ -81,7 +91,7 @@ class Admin::StaffinfoController < Admin::BaseController
                                           :physical_condition,:height,:weight,:contact_phone,:graduation_time,
                                           :_school,:major,:highest_degree,:id_card_number,:permanent_address,
                                           :live_address,:mailbox,:salary_expectation,:arrival_time,:work_params,
-                                          :self_evaluation,:reasons_for_applying,:office_software)
+                                          :self_evaluation,:reasons_for_applying,:office_software,:department_id)
   end
   def work_params
     params.require(:work_experience).permit(:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone)

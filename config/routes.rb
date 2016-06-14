@@ -15,8 +15,13 @@ Rails.application.routes.draw do
         get 'destroy'
         get 'show'
       end
-
     end
     resources :workexperience
+    resources :position do
+      member do
+        get 'show'
+        get 'destroy'
+      end
+    end
   end
 end

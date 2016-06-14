@@ -16,7 +16,7 @@
   <% @articles.each do |ar| %>
       <tr>
         <td><%= ar.id%></td>
-        <td><%= ar.position%></td>
+        <td><%= ar.positionName%></td>
         <td>
           <%= link_to '删除', {:controller => 'admin/departmentinfo', :action => 'destroy', :id => "#{ar.id}"}%>
         </td>

@@ -1,0 +1,31 @@
+<style>
+  #zhon {
+    margin: 0 auto;
+  }
+</style>
+
+<table id="zhon" border="1px">
+  <h5 align="center">职位信息</h5>
+  <tr>
+    <td>编号</td>
+    <td>部门</td>
+    <td>职位名称</td>
+    <td>操作</td>
+  </tr>
+
+  <% @position.each do |ar| %>
+      <tr>
+        <td><%= ar.id%></td>
+        <td><%= ar.department_id%></td>
+        <td><%= ar.positionname%></td>
+        <td>
+          <%= link_to '详情信息', {:controller => 'admin/position', :action => 'show', :id => "#{ar.id}"}%>
+        </td>
+      </tr>
+  <% end %>
+  <tr>
+    <td colspan="5" align="center"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></td>
+  </tr>
+
+
+</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602091419) do
+ActiveRecord::Schema.define(version: 20160613064511) do
 
   create_table "cducations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "start_and"
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20160602091419) do
   end
 
   create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "positionName"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "employee_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20160602091419) do
     t.string   "weight"
     t.integer  "contact_phone"
     t.string   "graduation_time"
-    t.string   "graduate"
     t.string   "_school"
     t.string   "major"
     t.string   "highest_degree"
@@ -53,15 +52,23 @@ ActiveRecord::Schema.define(version: 20160602091419) do
     t.string   "live_address"
     t.string   "mailbox"
     t.string   "salary_expectation"
-    t.string   "ox"
     t.datetime "arrival_time"
     t.string   "self_evaluation"
-    t.integer  "department_id"
     t.datetime "date_of_application"
     t.string   "office_software"
     t.string   "reasons_for_applying"
+    t.integer  "department_id"
+    t.integer  "state_id"
+    t.integer  "position_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "positions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "department_id"
+    t.string   "positionname"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

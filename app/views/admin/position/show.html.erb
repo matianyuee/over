@@ -1,0 +1,21 @@
+<h4 align="center">职位详情</h4>
+    <table align="center" border="1px">
+      <tr>
+        <td>部门</td><td>职位名称</td>
+        </tr>
+      <tr>
+      <%= form_for(:@position) do |f| %>
+    <td>
+      <%=f.select :department_id ,@department.collect{|s| [s.positionName,s.id]} %>
+    </td>
+      <% end%>
+        <td><%= @position.positionname%></td>
+      </tr>
+      <tr>
+
+        <td><%= link_to '修改', {:controller => 'admin/position', :action => 'edit', :id => "#{@position.id}"}%></td>
+        <td><%= link_to '删除', {:controller => 'admin/position', :action => 'destroy', :id => "#{@position.id}"}%></td>
+
+      </tr>
+    </table>
+

@@ -1,0 +1,14 @@
+<%=form_for(@position, url: {:controller => 'admin/position' ,:action => 'update'} , html: {method: :put}) do |f|%>
+    <table>
+      <tr>
+        <td><%= f.label :选择部门 %></td><td id="tdstyle"><%= f.select :department_id,@department.collect{|s| [s.positionName,s.id] }%></td>
+      </tr>
+      <tr>
+        <td><%= f.label :职位名称%></td><td id="tdstyle"><%= f.text_field :positionname%></td>
+      </tr>
+      <tr>
+        <td><%=f.submit "提交"%></td><td><%= link_to '返回', {:controller => 'admin/position', :action => 'index'}%></td>
+      </tr>
+    </table>
+
+<% end %>
