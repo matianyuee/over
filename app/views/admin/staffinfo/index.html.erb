@@ -1,14 +1,31 @@
 <style>
-  #zhon {
-    margin: 0 auto;
+  #table{
+     margin-top: 10px;
   }
+  h5 {
+    float: right;
+  }
+  #button{
+    margin-bottom: 9px;
+  }
+    #from{
+      margin: 0 auto;
+    }
 </style>
-
+<h5 class="success"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></h5>
 <h4 align="center">应聘人员列表</h4>
 
-<table id="zhon" border="1px">
+<form class="navbar-form navbar-left" role="search" action="" id="from">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="请输入姓名" name="name">
+  </div>
+  <button type="submit" class="btn btn-default">查找</button>
+</form>
 
-  <tr>
+<button type="button" class="btn btn-warning" id="button">人员新增</button>
+
+<table  class="table table-hover" id="table">
+  <tr class="danger">
     <td>姓名</td>
     <td>部门</td>
     <td>职位</td>
@@ -19,15 +36,14 @@
   </tr>
 
   <% @employee_infos.each do |ar| %>
-      <tr>
+      <tr class="info">
         <td><%= ar.name%></td>
-        <td><%= ar.department_id%></td>
-
+        <td><%= ar.positionName%></td>
         <td><%= ar.position_id%></td>
         <td><%= ar.contact_phone%></td>
         <td><%= ar.state_id%></td>
         <td>
-          <%= link_to '详情信息', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}"}%>
+          <span class="glyphicon glyphicon-search"><%= link_to '', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}"}%></span>
         </td>
       </tr>
   <% end %>

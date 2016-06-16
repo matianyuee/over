@@ -9,9 +9,10 @@
   })
 </script>
 
-<h4 align="center">应聘人员详情</h4>
 
-    <table border="1" align="center">
+<h4 align="center">应聘人员详情</h4>
+<div class="table-responsive">
+    <table class="table" >
       <tr>
         <td ><%= :姓名%></td><td><%= @employee_info.name%></td>
         <td class="td_style"><%=  :性别%></td><td><%= @employee_info.gender%></td>
@@ -54,6 +55,10 @@
         <td colspan="2"><center><%=  :期望薪资%></center><td colspan="2" class="yuan_style"><%= @employee_info.salary_expectation%></td>
         <td colspan="2"><center><%=  :到岗时间%></center><td colspan="2" class="yuan_style"><%=@employee_info.arrival_time%></td>
       </tr>
+      </table>
+</div>
+<div class="table-responsive">
+      <table class="table">
       <tr>
         <td colspan="8"><h4 align="center">工作经历</h4></td>
       </tr>
@@ -78,7 +83,11 @@
           </tr>
           <tr id="addtable"></tr>
       <% end %>
-      <tr id="stop">
+      </table>
+  </div>
+  <div class="table-responsive">
+    <table class="table">
+      <tr >
         <td colspan="8"><h4 align="center">教育情况</h4></td>
       </tr>
     <% @cducation.each do |cc| %>
@@ -122,4 +131,5 @@
         <td colspan="3" align="center"> <%= link_to '删除', {:controller => 'admin/staffinfo', :action => 'destroy', :id => "#{@employee_info.id}"}%></td>
       </tr>
     </table>
+    </div>
 

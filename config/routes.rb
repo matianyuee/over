@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       member do
         get 'destroy'
         get 'show'
+        post 'grop'
+      end
+      collection do
+        get 'groupleader'
       end
     end
     resources :workexperience
@@ -21,6 +25,7 @@ Rails.application.routes.draw do
       member do
         get 'show'
         get 'destroy'
+
       end
     end
   end

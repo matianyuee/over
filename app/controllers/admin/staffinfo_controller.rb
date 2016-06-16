@@ -1,7 +1,13 @@
 class Admin::StaffinfoController < Admin::BaseController
   def index
-    @employee_infos = EmployeeInfo.all
+    if(params[:name]==nil)
+    @employee_infos = EmployeeInfo.find_by_sql("select employee_infos.*,departments.positionName  from  departments inner join employee_infos on departments.id = employee_infos.department_id ")
     @position = Position.all
+
+    else
+      @employee_infos = EmployeeInfo.where("name=?",params.require(:name))
+      @position = Position.all
+    end
   end
 
   def new
@@ -11,6 +17,11 @@ class Admin::StaffinfoController < Admin::BaseController
   end
 
   def groupleader
+    @department = Department.all
+  end
+
+  def grop
+    @department = Department.find(params[:id])
 
   end
 

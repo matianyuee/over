@@ -27,21 +27,21 @@
     <ul class="sidebar-menu">
       <li id="g"><a href='#' class='selected'><i class='fa fa-circle-o'></i>部门管理</a></li>
       <ul id="tree">
-        <li><%= link_to '部门添加' , {:controller => :departmentinfo, :action => :new } %></li>
-        <li><%= link_to '部门撤销' , {:controller => :departmentinfo, :action => :index } %></li>
-        <li><%= link_to '职位添加' , {:controller => :position, :action => :new}%></li>
-        <li><%= link_to '职位查看' , {:controller => :position, :action => :index}%></li>
+
+        <li><%= link_to '部门' , {:controller => :departmentinfo, :action => :index } %></li>
+
+        <li><%= link_to '职位' , {:controller => :position, :action => :index}%></li>
 
       </ul>s
       <li id="gg"><a href='#' class='text-aqua'><i class='fa fa-circle-o'></i>员工管理</a></li>
       <ul id="treee">
+
         <li>
-         <%= link_to '应聘人员登记' , {:controller => :staffinfo, :action => :new } %>
+          <%= link_to '应聘人员' , {:controller => :staffinfo, :action => :index } %>
         </li>
         <li>
-          <%= link_to '应聘人员查看' , {:controller => :staffinfo, :action => :index } %>
+          <%= link_to '部门组长' ,{:controller => :staffinfo, :action => :groupleader} %>
         </li>
-        <li><%= link_to '设置部门组长', {:controller => :staffinfo, :action => :groupleader}%></li>
       </ul>
 
     </ul>

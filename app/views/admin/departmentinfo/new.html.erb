@@ -1,4 +1,9 @@
-
+<style>
+  h5 {
+    float: right;
+  }
+</style>
+<h5 class="success"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></h5>
 <%= form_for(@department, url: {:controller => 'admin/departmentinfo' ,:action => 'create'} ,html:{method: :post}) do |f| %>
       <table>
         <tr>

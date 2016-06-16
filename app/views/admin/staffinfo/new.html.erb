@@ -137,7 +137,7 @@
           <td class="td_style"><%= f.label :身高%></td><td><%= f.text_field :height%></td>
           <td class="td_style"><%= f.label :体重%></td><td><%= f.text_field :weight%></td>
           <td class="td_style"><%= f.label :联系电话%></td><td><%= f.text_field :contact_phone%></td>
-          <td class="td_style" colspan="1"><%= f.label :部门%></td><td><%= f.select :department_id,@department.collect{|s| [s.positionName,s.id] }%></td>
+          <td class="td_style" colspan="1"><%= f.label :部门%></td><td><%= f.select :department_id,@department.collect{|s| [s.id] }%></td>
         </tr>
         <tr>
           <td class="td_style"><%= f.label :毕业时间%></td><td><%= f.date_field :graduation_time%></td>

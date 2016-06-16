@@ -1,12 +1,16 @@
 <style>
-  #zhon {
-    margin: 0 auto;
+  h5 {
+   float: right;
+  }
+  #button{
+    margin-bottom: 9px;
   }
 </style>
-
-<table id="zhon" border="1px">
-  <h5 align="center">职位信息</h5>
-  <tr>
+<h5 class="success"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></h5>
+<table class="table table-hover">
+  <h4 align="center">职位信息</h4>
+  <button type="button" class="btn btn-warning" id="button">职位新增</button>
+  <tr class="danger">
     <td>编号</td>
     <td>部门</td>
     <td>职位名称</td>
@@ -14,18 +18,16 @@
   </tr>
 
   <% @position.each do |ar| %>
-      <tr>
+      <tr class="info">
         <td><%= ar.id%></td>
-        <td><%= ar.department_id%></td>
+        <td><%= ar.positionName%></td>
         <td><%= ar.positionname%></td>
         <td>
-          <%= link_to '详情信息', {:controller => 'admin/position', :action => 'show', :id => "#{ar.id}"}%>
+          <span class="glyphicon glyphicon-search"></span><%= link_to  '', {:controller => 'admin/position', :action => 'show', :id => "#{ar.id}"}%>
         </td>
       </tr>
   <% end %>
-  <tr>
-    <td colspan="5" align="center"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></td>
-  </tr>
+
 
 
 </table>

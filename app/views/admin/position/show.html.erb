@@ -4,7 +4,7 @@
         <td>部门</td><td>职位名称</td>
         </tr>
       <tr>
-      <%= form_for(:@position) do |f| %>
+      <%= form_for(:position) do |f| %>
     <td>
       <%=f.select :department_id ,@department.collect{|s| [s.positionName,s.id]} %>
     </td>

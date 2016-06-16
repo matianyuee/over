@@ -1,6 +1,7 @@
 class  Admin::PositionController < Admin::BaseController
   def new
     @positions = Position.new
+
     @department = Department.all
   end
   def create
@@ -24,7 +25,8 @@ class  Admin::PositionController < Admin::BaseController
   end
 
   def index
-    @position = Position.all
+    @position = Position.find_by_sql("select positions.*,departments.positionName  from  departments inner join positions on departments.id = positions.department_id ")
+
   end
 
   def show

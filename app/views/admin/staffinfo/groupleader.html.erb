@@ -1,1 +1,20 @@
+<style>
+
+</style>
+
+
+  <table id="table">
+    <tr>
+ <select class="form-control">
+        <%@department.each do |d |%>
+            <option value="<% d.id%>"><%=d.positionName%></option>
+        <% end %>
+      </select>
+
+    </tr>
+  </table>
+
+
+
+
 
