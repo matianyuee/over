@@ -27,7 +27,7 @@ class CreateEmployeeInfos < ActiveRecord::Migration[5.0]
       t.string :office_software
       t.string :reasons_for_applying
       t.integer :department_id     #部门外键
-      t.integer :state_id   #状态外键
+      t.string :state   #状态
       t.integer :position_id   #岗位外键
 
       t.timestamps

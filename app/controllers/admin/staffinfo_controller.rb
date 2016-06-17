@@ -1,12 +1,15 @@
 class Admin::StaffinfoController < Admin::BaseController
   def index
-    if(params[:name]==nil)
-    @employee_infos = EmployeeInfo.find_by_sql("select employee_infos.*,departments.positionName  from  departments inner join employee_infos on departments.id = employee_infos.department_id ")
-    @position = Position.all
+    if(params[:name]=="" ||params[:name]==nil)
+    @employee_infos = EmployeeInfo.find_by_sql("select employee_infos.*,departments.positionName,positions.positionname from  departments inner join employee_infos on departments.id = employee_infos.department_id inner join positions on positions.id = employee_infos.position_id order by employee_infos.name desc")
+   # @employee_infos.page(1).per(1)
 
+
+      #去第几叶的 每也几条数据,
     else
-      @employee_infos = EmployeeInfo.where("name=?",params.require(:name))
-      @position = Position.all
+      #@employee_infos = EmployeeInfo.where("name=?",params.require(:name))
+      @employee_infos = EmployeeInfo.find_by_sql("select employee_infos.*,departments.positionName,positions.positionname  from  departments inner join employee_infos on departments.id = employee_infos.department_id inner join positions on positions.id = employee_infos.position_id where employee_infos.name='"+params[:name]+"'")
+
     end
   end
 
@@ -17,8 +20,16 @@ class Admin::StaffinfoController < Admin::BaseController
   end
 
   def groupleader
-    @department = Department.all
-  end
+    @departments = Department.all
+    if(params[:select] == nil || params[:select] == "")
+      @employee_infos = EmployeeInfo.find_by_sql("select employee_infos.*,departments.positionName,positions.positionname from  departments inner join employee_infos on departments.id = employee_infos.department_id inner join positions on positions.id = employee_infos.position_id")
+    else
+      @employee_infos = EmployeeInfo.find_by_sql("select employee_infos.*,departments.positionName,positions.positionname from  departments inner join employee_infos on departments.id = employee_infos.department_id inner join positions on positions.id = employee_infos.position_id where employee_infos.department_id="+params[:select])
+    end
+
+
+
+    end
 
   def grop
     @department = Department.find(params[:id])

@@ -7,4 +7,6 @@ class EmployeeInfo < ApplicationRecord
     validates :name, presence: true , length: {minimum: 2}
       accepts_nested_attributes_for :cducations
       accepts_nested_attributes_for :work_experiences
+
+
 end

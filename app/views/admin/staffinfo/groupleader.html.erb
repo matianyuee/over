@@ -1,18 +1,66 @@
+
+
+
 <style>
-
+  #table{
+    margin-top: 20px;
+  }
+  h5 {
+    float: right;
+  }
+  #from{
+    margin: 0 auto;
+  }
+  #da{
+    height: 503px;
+  }
 </style>
+<h5 class="success"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></h5>
+<h4 align="center">部门组长设置</h4>
 
-
+<form class="navbar-form navbar-left" role="search" action="" id="from">
   <table id="table">
     <tr>
- <select class="form-control">
-        <%@department.each do |d |%>
-            <option value="<% d.id%>"><%=d.positionName%></option>
-        <% end %>
-      </select>
-
+      <td>
+        <select class="form-control" name="select">
+          <option value=''>请选择部门</option>
+          <%@departments.each do |d |%>
+              <option value='<%=d.id%>'><%=d.positionName%></option>
+          <% end %>
+        </select>
+      </td>
+      <td> <button type="submit" class="btn btn-default">查找</button></td>
     </tr>
   </table>
+</form>
+
+<table  class="table table-hover" >
+  <tr class="danger">
+    <td>姓名</td>
+    <td>部门</td>
+    <td>职位</td>
+    <td>电话</td>
+    <td>状态</td>
+    <td>操作</td>
+
+  </tr>
+  <% @employee_infos.each do |ar| %>
+      <tr class="info">
+        <td><%= ar.name%></td>
+        <td><%= ar.positionName%></td>
+        <td><%= ar.positionname%></td>
+        <td><%= ar.contact_phone%></td>
+        <td><%= ar.state%></td>
+        <td>
+          <%= link_to '编辑', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}" ,:class =>"glyphicon glyphicon-search"}%>
+        </td>
+      </tr>
+  <% end %>
+
+</table>
+<div id="da"></div>
+
+
 
 
 

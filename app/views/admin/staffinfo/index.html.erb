@@ -11,6 +11,10 @@
     #from{
       margin: 0 auto;
     }
+    #da{
+      height: 500px;
+    }
+
 </style>
 <h5 class="success"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></h5>
 <h4 align="center">应聘人员列表</h4>
@@ -22,7 +26,7 @@
   <button type="submit" class="btn btn-default">查找</button>
 </form>
 
-<button type="button" class="btn btn-warning" id="button">人员新增</button>
+<button type="button" class="btn btn-warning" id="button"><%= link_to '人员新增' , :controller => 'admin/staffinfo' , :action => 'new'%></button>
 
 <table  class="table table-hover" id="table">
   <tr class="danger">
@@ -39,14 +43,36 @@
       <tr class="info">
         <td><%= ar.name%></td>
         <td><%= ar.positionName%></td>
-        <td><%= ar.position_id%></td>
+        <td><%= ar.positionname%></td>
         <td><%= ar.contact_phone%></td>
-        <td><%= ar.state_id%></td>
+        <td><%= ar.state%></td>
         <td>
-          <span class="glyphicon glyphicon-search"><%= link_to '', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}"}%></span>
+         <%= link_to '编辑', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}" ,:class =>"glyphicon glyphicon-search"}%>
         </td>
       </tr>
   <% end %>
 
 </table>
+<tr>
+  <td>
+    <nav>
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="#" name="indexinfo">1</a></li>
+        <li><a href="#" name="indexinfo">2</a></li>
+        <li><a href="#" name="indexinfo">3</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </td>
+</tr>
+<div id="da"></div>
 

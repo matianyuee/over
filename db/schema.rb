@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160613064511) do
     t.string   "office_software"
     t.string   "reasons_for_applying"
     t.integer  "department_id"
-    t.integer  "state_id"
+    t.string   "state"
     t.integer  "position_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
