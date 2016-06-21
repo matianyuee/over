@@ -51,9 +51,13 @@
         <td><%= ar.positionname%></td>
         <td><%= ar.contact_phone%></td>
         <td><%= ar.state%></td>
+         <% if ar.position_id==4%>
+            <td>组长</td>
+            <%else%>
         <td>
-          <%= link_to '编辑', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}" ,:class =>"glyphicon glyphicon-search"}%>
+          <%=link_to '升为组长', {:controller => 'admin/staffinfo', :action => 'groupleader', :groupid => "#{ar.id}"}%>
         </td>
+            <% end%>
       </tr>
   <% end %>
 

@@ -1,0 +1,2 @@
+class Resignationapplication < ApplicationRecord
+end

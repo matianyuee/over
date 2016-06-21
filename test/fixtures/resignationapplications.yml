@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  string: 
+  integer: 
+  integer: 
+  datetime: 
+  datetime: 
+  string: 
+  text: 
+  datetime: 
+  datetime: 
+  string: 
+  text: 
+  text: 
+  string: 
+  text: 
+  string: 
+  text: 
+  string: 
+  datetime: 
+  datetime: 
+  datetime: 
+  text: 
+
+two:
+  string: 
+  integer: 
+  integer: 
+  datetime: 
+  datetime: 
+  string: 
+  text: 
+  datetime: 
+  datetime: 
+  string: 
+  text: 
+  text: 
+  string: 
+  text: 
+  string: 
+  text: 
+  string: 
+  datetime: 
+  datetime: 
+  datetime: 
+  text: 

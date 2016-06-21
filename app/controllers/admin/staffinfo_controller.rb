@@ -21,20 +21,20 @@ class Admin::StaffinfoController < Admin::BaseController
 
   def groupleader
     @departments = Department.all
+
+    if(params[:groupid]==nil)
     if(params[:select] == nil || params[:select] == "")
       @employee_infos = EmployeeInfo.find_by_sql("select employee_infos.*,departments.positionName,positions.positionname from  departments inner join employee_infos on departments.id = employee_infos.department_id inner join positions on positions.id = employee_infos.position_id")
     else
       @employee_infos = EmployeeInfo.find_by_sql("select employee_infos.*,departments.positionName,positions.positionname from  departments inner join employee_infos on departments.id = employee_infos.department_id inner join positions on positions.id = employee_infos.position_id where employee_infos.department_id="+params[:select])
     end
-
-
-
+    else
+      @employees = EmployeeInfo.find(params[:groupid])
+      @employees.update(position_id:4)
+      redirect_to :action => :groupleader
     end
 
-  def grop
-    @department = Department.find(params[:id])
-
-  end
+    end
 
   def create
     # work = [:id,:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone]

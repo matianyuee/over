@@ -1,0 +1,2 @@
+class Mattersshouldbedone < ApplicationRecord
+end

@@ -9,15 +9,17 @@ Rails.application.routes.draw do
        member do
          get 'destroy'
        end
+      collection do
+          match 'merge', :via => ['get','post']
+      end
     end
     resources :staffinfo do
       member do
         get 'destroy'
         get 'show'
-        post 'grop'
       end
       collection do
-        get 'groupleader'
+        match 'groupleader', :via =>[:get,:post]
       end
     end
     resources :workexperience

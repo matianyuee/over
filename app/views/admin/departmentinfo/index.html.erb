@@ -117,6 +117,7 @@
 <h4 align="center">部门信息</h4>
 <h5 class="success"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></h5>
 <input type="button" class="btn btn-info" id="button" value="部门新增" onclick="EV_modeAlert('envon')" >
+<%= link_to '部门合并' , {:controller => 'admin/departmentinfo' , :action => 'merge'}%>
 <div align="center">
   <div style="width:1720px; height:600px;  margin:20px 0; line-height:300%; padding:30px;">
     <table class="table table-hover">

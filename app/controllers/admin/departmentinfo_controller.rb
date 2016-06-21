@@ -16,8 +16,6 @@ class  Admin::DepartmentinfoController < Admin::BaseController
       new
       render :new
     end
-
-
   end
   def destroy
     @tcl = Department.find(params[:id])
@@ -36,6 +34,19 @@ class  Admin::DepartmentinfoController < Admin::BaseController
   def show
 
   end
+  def merge
+    @departments = Department.all
+    if request.post?
+      selectname = params[:selectname]
+      puts selectname
+      selectinfo = params[:selectinfo]
+      puts selectinfo
+      EmployeeInfo.where(department_id:selectname).update(department_id:selectinfo)
+      Department.find(selectname).destroy
+      redirect_to :action => :index
+    end
+  end
+
 
   def article_params
     params.require(:department).permit(:positionName)
