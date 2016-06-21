@@ -1,4 +1,4 @@
-<%=form_for(@leavedatailinfo ,url:{:controller =>'admin/leavedatail',:action=>'create'},html:{method: :post}) do|f|%>
+<%=form_for(@leavedatail ,url:{:controller =>'admin/leavedatail',:action=>'create'},html:{method: :post}) do|f|%>
     <table border="1">
           <tr>
             <td>姓名:</td>
@@ -21,122 +21,122 @@
         <td>1</td>
         <td>制订详细工作交接清单、计划</td>
         <td rowspan="4">本部门</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>2</td>
         <td>检查并回收文件（书面和电子）</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>3</td>
         <td>检查并回收其管理的物品、资料（程序档案、图片资料等）</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>4</td>
         <td>要求列清其工作联系部门和客户名单</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>5</td>
         <td>IT设备硬件检查及交还</td>
         <td rowspan="3">行政部</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>6</td>
         <td>IT软件系统检查</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>7</td>
         <td>关闭公司邮箱及QQ群</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>8</td>
         <td>取消门禁和考勤结算	</td>
         <td rowspan="3">行政部</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>9</td>
         <td>交还各类钥匙</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>10</td>
         <td>交还领用办公用品</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>11</td>
         <td>交还劳动手册<br>开具退工单或离职证明</td>
         <td rowspan="2">人力资源部</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>13</td>
         <td>停办社会保险及公积金</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>14</td>
         <td>财务结算（如借款、还款、报销）</td>
         <td rowspan="2">财务部</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
         <td>15</td>
         <td>奖惩及扣除其他费用</td>
-        <td><input name="leavedatail[whethertocomplete][]" /></td>
-        <td><input name="leavedatail[signatureoftheresponsibleperson][]" /></td>
-        <td><input name="leavedatail[departmenthead][]" /></td>
-        <td><input name="leavedatail[remarks][]" /></td>
+        <td><input name="leavedatail[][whethertocomplete]" /></td>
+        <td><input name="leavedatail[][signatureoftheresponsibleperson]" /></td>
+        <td><input name="leavedatail[][departmenthead]" /></td>
+        <td><input name="leavedatail[][remarks]" /></td>
       </tr>
       <tr>
-        <td colspan="1">离职人员签字:</td><td><%= f.text_field :staffsignature%></td>
-        <td >人力资源部总监:</td><td colspan="4"><%= f.text_field :signatureofdirectorofhumanresources%></td>
+        <td colspan="1">离职人员签字:</td><td></td>
+        <td >人力资源部总监:</td><td colspan="4"></td>
       </tr>
       <tr>
         <td colspan="7"><%=f.submit "提交"%></td>

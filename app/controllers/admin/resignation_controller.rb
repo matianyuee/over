@@ -6,7 +6,7 @@ class   Admin::ResignationController < Admin::BaseController
   end
   def create
     @resignationapplication = Resignationapplication.new(resignationapplicationinfo)
-    @resignationapplication.employee_info_id=session[:id]
+    @resignationapplication.employee_info_id = session[:id]
     @resignationapplication.save
     redirect_to :controller => :leavedatail ,:action => :new
   end

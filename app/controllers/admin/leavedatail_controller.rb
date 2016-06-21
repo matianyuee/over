@@ -8,9 +8,11 @@ class  Admin::LeavedatailController < Admin::BaseController
   end
   def create
      @sequence_id = 1;
+     @employees = EmployeeInfo.find(session[:id])
      params.require(:leavedatail).each{ |le|
        @leavedatail = Leavedatail.new(le.permit(:whethertocomplete,:signatureoftheresponsibleperson,:departmenthead,:remarks))
        @leavedatail.employee_info_id = session[:id]
+       @leavedatail.mattersshouldbedone_id=@sequence_id
        @sequence_id +=1
        @leavedatail.save
      }
