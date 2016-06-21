@@ -1,0 +1,2 @@
+module LeavedatailHelper
+end

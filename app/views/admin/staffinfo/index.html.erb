@@ -48,6 +48,9 @@
         <td><%= ar.state%></td>
         <td>
          <%= link_to '编辑', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}" ,:class =>"glyphicon glyphicon-search"}%>
+          <% if ar.state == '在职' %>
+          <%= link_to '辞职', {:controller => 'admin/resignation', :action => 'new', :id => "#{ar.id}" ,:class =>"glyphicon glyphicon-search"}%>
+              <% end%>
         </td>
       </tr>
   <% end %>
