@@ -15,9 +15,15 @@ class  Admin::LeavedatailController < Admin::BaseController
        @leavedatail.mattersshouldbedone_id=@sequence_id
        @sequence_id +=1
        @leavedatail.save
+
      }
         @employees = EmployeeInfo.find(session[:id])
-        @employees.update(state:"离职")
+        @resignation = Resignationapplication.where("employee_info_id=?",session[:id])
+        @resignation.each{|r|
+          @reasonsforresignation=r.reasonsforresignation
+        }
+        @employees.update(state:@reasonsforresignation)
+          
       redirect_to :controller => :staffinfo ,:action => :index
   end
 

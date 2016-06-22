@@ -42,12 +42,20 @@
   <% @employee_infos.each do |ar| %>
       <tr class="info">
         <td><%= ar.name%></td>
-        <td><%= ar.positionName%></td>
-        <td><%= ar.positionname%></td>
+        <% @department.each do |d|%>
+            <% if ar.department_id == d.id%>
+        <td><%= d.positionName%></td>
+                <% end%>
+            <% end%>
+        <% @position.each do |p|%>
+            <% if ar.position_id == p.id%>
+        <td><%= p.positionname%></td>
+                <% end%>
+            <% end%>
         <td><%= ar.contact_phone%></td>
         <td><%= ar.state%></td>
         <td>
-         <%= link_to '编辑', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}" ,:class =>"glyphicon glyphicon-search"}%>
+         <%= link_to '详情', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}" ,:class =>"glyphicon glyphicon-search"}%>
           <% if ar.state == '在职' %>
           <%= link_to '辞职', {:controller => 'admin/resignation', :action => 'new', :id => "#{ar.id}" ,:class =>"glyphicon glyphicon-search"}%>
               <% end%>
@@ -56,26 +64,6 @@
   <% end %>
 
 </table>
-<tr>
-  <td>
-    <nav>
-      <ul class="pagination">
-        <li>
-          <a href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li><a href="#" name="indexinfo">1</a></li>
-        <li><a href="#" name="indexinfo">2</a></li>
-        <li><a href="#" name="indexinfo">3</a></li>
-        <li>
-          <a href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </td>
-</tr>
+<%= paginate @employee_infos  %>
 <div id="da"></div>
 
