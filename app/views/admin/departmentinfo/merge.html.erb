@@ -1,14 +1,4 @@
-<script>
-  $(document).ready(function () {
 
-    $('tbody tr').hover(function() {
-      $(this).addClass('odd');
-    }, function() {
-      $(this).removeClass('odd');
-    });
-
-  });
-</script>
 <style>
   td{
     text-align: center;
@@ -109,6 +99,30 @@
     margin-left: 25%;
   }
 </style>
+<script>
+  $(document).ready(function () {
+    $('tbody tr').hover(function() {
+      $(this).addClass('odd');
+    }, function() {
+      $(this).removeClass('odd');
+    });
+    $('form').submit(function(){
+      if($("#bu").val() == "chose" || $("#bub").val()=="chose"){
+        alert("请选择部门!")
+        return false
+      }
+      if($("#bu").get(0).selectedIndex == $("#bub").get(0).selectedIndex){
+        alert("部门重复!")
+        return false
+
+      }
+      return  true
+
+    });
+
+
+  });
+</script>
 
 <div style="height: 700px;">
   <div id="down">
@@ -119,8 +133,8 @@
               <td>
                 请选择被合并的部门:
               </td>
-              <td><select class="form-control" name="selectname">
-                <option value=''>请选择部门</option>
+              <td><select class="form-control" name="selectname" id="bu">
+                <option value='chose'>请选择部门</option>
                 <%@departments.each do |d |%>
                     <option value='<%=d.id%>'><%=d.positionName%></option>
                 <% end %>
@@ -128,8 +142,8 @@
             </tr>
             <tr>
               <td>请选择要合并到的部门:</td>
-              <td><select class="form-control" name="selectinfo">
-                <option value=''>请选择部门</option>
+              <td><select class="form-control" name="selectinfo" id="bub">
+                <option value='chose'>请选择部门</option>
                 <%@departments.each do |d |%>
                     <option value='<%=d.id%>'><%=d.positionName%></option>
                 <% end %>

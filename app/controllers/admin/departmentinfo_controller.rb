@@ -38,12 +38,12 @@ class  Admin::DepartmentinfoController < Admin::BaseController
     @departments = Department.all
     if request.post?
       selectname = params[:selectname]
-      puts selectname
       selectinfo = params[:selectinfo]
-      puts selectinfo
+      if selectname != selectinfo
       EmployeeInfo.where(department_id:selectname).update(department_id:selectinfo)
       Department.find(selectname).destroy
       redirect_to :action => :index
+      end
     end
   end
 

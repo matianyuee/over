@@ -47,8 +47,16 @@
   <% @employee_infos.each do |ar| %>
       <tr class="info">
         <td><%= ar.name%></td>
-        <td><%= ar.positionName%></td>
-        <td><%= ar.positionname%></td>
+        <% @departments.each do |d|%>
+            <% if ar.department_id == d.id%>
+        <td><%=  d.positionName%></td>
+                <% end%>
+            <% end%>
+        <% @position.each do |p|%>
+            <% if ar.position_id == p.id%>
+        <td><%= p.positionname%></td>
+            <% end %>
+            <% end%>
         <td><%= ar.contact_phone%></td>
         <td><%= ar.state%></td>
          <% if ar.position_id==4%>
