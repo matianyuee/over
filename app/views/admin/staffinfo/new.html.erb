@@ -14,20 +14,19 @@
     })
   })
 
-  var ex_num= 1;
   var count=0;
   var count1=0;
   $(document).ready(function(){
     $("#zeng").click(function(){
-      ex_num+1;
+
       count+=1;
-      $("#addtable").after(" <tr> <td class='jingli_style'><input type='date' name='work_experience["+ex_num+"][start_and]'></td><td><input type='date' name='work_experience["+ex_num+"][end_date]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][work_unit]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][post]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][salary]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][witness]'></td>"+
-          "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][witness]'></td>"+
-         "<td class='jingli_style'><input type='text' name='work_experience["+ex_num+"][telephone]'></td>"+"</tr>"
+      $("#addtable").after(" <tr> <td class='jingli_style'><input type='date' name='work_experience[][start_and]'></td><td><input type='date' name='work_experience[][end_date]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience[][work_unit]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience[][post]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience[][salary]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience[][witness]'></td>"+
+          "<td class='jingli_style'><input type='text' name='work_experience[][witness]'></td>"+
+         "<td class='jingli_style'><input type='text' name='work_experience[][telephone]'></td>"+"</tr>"
       )
     })
     $("#jian").click(function(){
@@ -43,14 +42,13 @@
 
   $(document).ready(function(){
     $("#zeng1").click(function(){
-      ex_num+1;
       count1+=1;
       $("#addtable2").after("  <tr>"+
-         "<td class='jingli_style'><input type='date' name='cducations["+ex_num+"][start_and]'></td><td><input type='date' name='cducations["+ex_num+"][end_date]'></td>"+
-          "<td class='jingli_style' colspan='1'><input type='text' name='cducations["+ex_num+"][school]'></td>"+
-          "<td class='yuan_style' colspan='2'><input type='text' name='cducations["+ex_num+"][major]'></td>"+
-          "<td class='jingli_style'><input type='text' name='cducations["+ex_num+"][leaming_form]'></td>"+
-          "<td class='yuan_style' colspan='2'><input type='text' name='cducations["+ex_num+"][qualifications_and_degree]'></td>"+
+         "<td class='jingli_style'><input type='date' name='cducations[][start_and]'></td><td><input type='date' name='cducations[][end_date]'></td>"+
+          "<td class='jingli_style' colspan='1'><input type='text' name='cducations[][school]'></td>"+
+          "<td class='yuan_style' colspan='2'><input type='text' name='cducations[][major]'></td>"+
+          "<td class='jingli_style'><input type='text' name='cducations[][leaming_form]'></td>"+
+          "<td class='yuan_style' colspan='2'><input type='text' name='cducations[][qualifications_and_degree]'></td>"+
           "</tr>"
       )
     })
@@ -137,7 +135,14 @@
           <td class="td_style"><%= f.label :身高%></td><td><%= f.text_field :height%></td>
           <td class="td_style"><%= f.label :体重%></td><td><%= f.text_field :weight%></td>
           <td class="td_style"><%= f.label :联系电话%></td><td><%= f.text_field :contact_phone%></td>
-          <td class="td_style" colspan="1"><%= f.label :部门%></td><td><%= f.select :department_id,@department.collect{|s| [s.id,] }%></td>
+          <td class="td_style" colspan="1"><%= f.label :部门%></td>
+            <td><select class="form-control" name="select">
+              <option value=''>请选择部门</option>
+              <%@department.each do |d |%>
+                  <option value='<%=d.id%>'><%=d.positionName%></option>
+              <% end %>
+            </select>
+            </td>
         </tr>
         <tr>
           <td class="td_style"><%= f.label :毕业时间%></td><td><%= f.date_field :graduation_time%></td>
@@ -163,6 +168,7 @@
           <%= fields_for :work_experience  do |ww| %>
           <tr>
             <td class="jingli_style" colspan="2"><%= ww.label :起止年月%></td>
+
             <td class="jingli_style" ><%= ww.label :工作单位%></td>
             <td class="jingli_style" ><%= ww.label :岗位%></td>
             <td class="jingli_style"><%= ww.label :薪资%></td>
@@ -170,16 +176,18 @@
             <td class="jingli_style" ><%= ww.label :证明人%></td>
             <td class="jingli_style" ><%= ww.label :电话%><td id="jian"><a href="#" >-</a></td>
           </tr>
+
           <tr>
-             <td class="jingli_style"><%= ww.date_field :start_and%></td><td><%= ww.date_field :end_date%></td>
-            <td class="jingli_style"><%= ww.text_field :work_unit%></td>
-            <td class="jingli_style"><%= ww.text_field :post%></td>
-            <td class="jingli_style"><%= ww.text_field :salary%></td>
-            <td class="jingli_style"><%= ww.text_field :reasons_for_leaving%></td>
-            <td class="jingli_style"><%= ww.text_field :witness%></td>
-            <td class="jingli_style"><%= ww.text_field :telephone%></td><td id="zeng"><a href="#" >+</a></td>
+            <td class="jingli_style"><input type ="date" name="work_experience[][start_and]"> </td><td><input type="date" name="work_experience[][end_date]"></td>
+            <td class="jingli_style"><input type ="text" name="work_experience[][work_unit]"> </td>
+            <td class="jingli_style"><input type ="text" name="work_experience[][post]"> </td>
+            <td class="jingli_style"><input type ="text" name="work_experience[][salary]"> </td>
+            <td class="jingli_style"><input type ="text" name="work_experience[][reasons_for_leaving]"> </td>
+            <td class="jingli_style"><input type ="text" name="work_experience[][witness]"> </td>
+            <td class="jingli_style"><input type ="text" name="work_experience[][telephone]"> </td><td id="zeng"><a href="#" >+</a></td>
           </tr>
-          <tr id="addtable"></tr>
+           <tr id="addtable"></tr>
+
       <% end %>
           <tr id="stop">
             <td colspan="8"><h4 align="center">教育情况</h4></td>
@@ -192,13 +200,12 @@
             <td class="jingli_style"><%= f.label :学习形式%></td>
             <td class="jingli_style" colspan="2"><%= cc.label :所获学历及学位%></td><td id="jian1"><a href="#">-</a></td>
           </tr>
-
             <tr>
-              <td class="jingli_style"><%= cc.date_field :start_and%></td><td><%= cc.date_field :end_date%></td>
-              <td class="jingli_style" colspan="1"><%= cc.text_field :school%></td>
-              <td class="yuan_style" colspan="2"><%= cc.text_field :major%></td>
-              <td class="jingli_style"><%= cc.text_field :leaming_form%></td>
-              <td class="yuan_style" colspan="2"><%= cc.text_field :qualifications_and_degree%></td><td id="zeng1"><a href="#" >+</a></td>
+              <td class="jingli_style"><input type ="date" name="cducations[][start_and]"> </td><td><input type="date" name="cducations[][end_date]"></td>
+              <td class="jingli_style" colspan="1"><input type ="text" name="cducations[][school]"> </td>
+              <td class="yuan_style" colspan="2"><input type ="text" name="cducations[][major]"> </td>
+              <td class="jingli_style"><input type ="text" name="cducations[][leaming_form]"> </td>
+              <td class="yuan_style" colspan="2"><input type ="text" name="cducations[][qualifications_and_degree]"> </td> <td id="zeng1"><a href="#" >+</a></td>
             </tr>
             <tr id="addtable2"> </tr>
           <% end%>

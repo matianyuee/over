@@ -3,7 +3,7 @@ class Admin::StaffinfoController < Admin::BaseController
     @department = Department.all
     @position = Position.all
     if(params[:name]=="" ||params[:name]==nil)
-     @employee_infos = EmployeeInfo.page(params[:page]).per(1)
+     @employee_infos = EmployeeInfo.page(params[:page]).per(25)
     else
        @employee_infos =EmployeeInfo.where("name like ?","%#{params[:name].to_s.strip}%").page(params[:page]).per(25)
     end
@@ -33,41 +33,32 @@ class Admin::StaffinfoController < Admin::BaseController
     end
 
   def create
-    # work = [:id,:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone]
-    # cduet = [:id,:start_and,:end_date,:school,:major,:leaming_form,:qualifications_and_degree]
-    #   @article = EmployeeInfo.new(params.require(:employee_info).permit(:name,
-    #                                                                     :gender,:birth_date,:marriage,:nation,:origin,:political_landscape,
-    #                                                                     :physical_condition,:height,:weight,:contact_phone,:graduation_time,
-    #                                                                     :_school,:major,:highest_degree,:id_card_number,:permanent_address,
-    #                                                                     :live_address,:mailbox,:salary_expectation,:arrival_time,:work_params,
-    #                                                                     :work_experiences_attributes => work , :cducations_attributes => cduet))
-      @article = EmployeeInfo.new(article_params)
+   # work = [:id,:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone]
+   #  cduet = [:id,:start_and,:end_date,:school,:major,:leaming_form,:qualifications_and_degree]
+   #  @article = EmployeeInfo.new(params.require(:employee_info).permit(:name,
+   #                                                                      :gender,:birth_date,:marriage,:nation,:origin,:political_landscape,
+   #                                                                      :physical_condition,:height,:weight,:contact_phone,:graduation_time,
+   #                                                                      :_school,:major,:highest_degree,:id_card_number,:permanent_address,
+   #                                                                      :live_address,:mailbox,:salary_expectation,:arrival_time,:work_params,
+   #                                                                      :department_id, :self_evaluation,:reasons_for_applying,:office_software,
+   #                                                                      :work_experiences_attributes => work , :cducations_attributes => cduet))
+    @article = EmployeeInfo.new(article_params)
     if @article.save
-    # params[:work_experience].each { |pars|
-    #   @workExperien = WorkExperience.new(pars.permit(:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone))
-    #   @workExperien.employee_info_id = @article.id
-    #    @workExperien.save
-    #   }
-       # params.require(:cducation).each { |cc|
-         #@cducation = Cducation.new(cc.permit(:start_and,:end_date,:school,:major,:leaming_form,:qualifications_and_degree))
-         #@cducation.employee_info_id = @article.id
-         # @cducation.save
-      # }
-     @work_params = WorkExperience.new(work_params)
-     @work_params.employee_info_id = @article.id
-     @work_params.save
-     @cducation = Cducation.new(cdudetion_params)
-      @cducation.employee_info_id =@article.id
-      @cducation.save
-      if @work_params && @cducation
-          redirect_to :action=>"index"
-      else
-        render :new
-      end
-
+    params[:work_experience].each { |pars|
+      @workExperien = WorkExperience.new(pars.permit(:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone))
+      @workExperien.employee_info_id = @article.id
+       @workExperien.save
+      }
+    params[:cducations].each { |cc|
+         @cducation = Cducation.new(cc.permit(:start_and,:end_date,:school,:major,:leaming_form,:qualifications_and_degree))
+         @cducation.employee_info_id = @article.id
+         @cducation.save
+      }
+        redirect_to :action => :index
     else
-      render :new
-      end
+      redirect_to :action => 'new'
+    end
+
   end
   def destroy
     @employee_info = EmployeeInfo.find(params[:id])
@@ -109,7 +100,8 @@ class Admin::StaffinfoController < Admin::BaseController
                                           :physical_condition,:height,:weight,:contact_phone,:graduation_time,
                                           :_school,:major,:highest_degree,:id_card_number,:permanent_address,
                                           :live_address,:mailbox,:salary_expectation,:arrival_time,:work_params,
-                                          :self_evaluation,:reasons_for_applying,:office_software,:department_id)
+                                          :self_evaluation,:reasons_for_applying,:office_software,:department_id,
+                                         )
   end
   def work_params
     params.require(:work_experience).permit(:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone)
