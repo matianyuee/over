@@ -19,12 +19,13 @@ class  Admin::PositionController < Admin::BaseController
   def index
     @position = Position.all
     @positioninfo = Position.new
-    @department = Department.all
+   @department = Department.all
   end
 
   def create
-    @positioninfo = Position.create(positioninfo)
-    if @positioninfo
+    @positioninfo = Position.new(positioninfo)
+    @positioninfo.department_id = params[:select]
+    if @positioninfo.save
       redirect_to :action => 'index'
     else
       render :new
@@ -43,6 +44,6 @@ class  Admin::PositionController < Admin::BaseController
 
   private
   def positioninfo
-    params.require(:position).permit(:department_id,:positionname)
+    params.require(:position).permit(:positionname)
   end
 end

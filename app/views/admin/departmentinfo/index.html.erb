@@ -116,11 +116,27 @@
 </script>
 <h4 align="center">部门信息</h4>
 <h5 class="success"> <%= link_to '返回', {:controller => 'admin/dashboard'}%></h5>
-<input type="button" class="btn btn-info" id="button" value="部门新增" onclick="EV_modeAlert('envon')" >
 <button class="btn btn-info"><%= link_to '部门合并' , {:controller => 'admin/departmentinfo' , :action => 'merge'}%></button>
+<a class="btn btn-info" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">部门新增</a>
+<div class="collapse" id="collapseExample">
+  <div class="well">
+    <%= form_for(@department, url: {:controller => 'admin/departmentinfo' ,:action => 'create'} ,html:{method: :post}) do |f| %>
+          <div class="col-lg-6">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="请输入部门" name="department[positionName]">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit">提交</button>
+                </span>
+            </div>
+          </div>
+    <% end %>
+  </div>
+</div>
+
+
 
 <div align="center">
-  <div style="width:1720px; height:600px;  margin:20px 0; line-height:300%; padding:30px;">
+
     <table class="table table-hover">
       <tr class="danger">
         <td>编号</td>
@@ -138,18 +154,10 @@
           </tr>
       <% end %>
     </table>
-  </div>
 
-  <div id="envon" style=" width:300px; background-color:#FFFFFF; border:1px solid #000000; padding:20px; overflow:hidden; display:none;">
-
-    <p align="right"><a href="javascript:EV_closeAlert()"><span class="glyphicon glyphicon-remove"/></a></p>
-    <%= form_for(@department, url: {:controller => 'admin/departmentinfo' ,:action => 'create'} ,html:{method: :post}) do |f| %>
-          <tr>
-            <td><%= f.text_field :positionName%></td><td class="info"><%= f.submit "完成"%></td>
-          </tr>
-    <% end %>
-
-  </div>
 </div>
+
+
+
 
 

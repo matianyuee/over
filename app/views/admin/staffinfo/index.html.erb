@@ -55,6 +55,7 @@
             <% end%>
         <td><%= ar.contact_phone%></td>
         <td><%= ar.state%></td>
+
         <td>
          <%= link_to '详情', {:controller => 'admin/staffinfo', :action => 'show', :id => "#{ar.id}" ,:class =>"glyphicon glyphicon-search"}%>
           <% if ar.state == '在职' %>
@@ -63,6 +64,9 @@
         </td>
       </tr>
   <% end %>
+  <div class="overlay">
+    <i class="fa fa-refresh fa-spin"></i>
+  </div>
 
 </table>
 <%= paginate @employee_infos  %>

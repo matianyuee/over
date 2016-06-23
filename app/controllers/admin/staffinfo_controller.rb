@@ -33,16 +33,8 @@ class Admin::StaffinfoController < Admin::BaseController
     end
 
   def create
-   # work = [:id,:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone]
-   #  cduet = [:id,:start_and,:end_date,:school,:major,:leaming_form,:qualifications_and_degree]
-   #  @article = EmployeeInfo.new(params.require(:employee_info).permit(:name,
-   #                                                                      :gender,:birth_date,:marriage,:nation,:origin,:political_landscape,
-   #                                                                      :physical_condition,:height,:weight,:contact_phone,:graduation_time,
-   #                                                                      :_school,:major,:highest_degree,:id_card_number,:permanent_address,
-   #                                                                      :live_address,:mailbox,:salary_expectation,:arrival_time,:work_params,
-   #                                                                      :department_id, :self_evaluation,:reasons_for_applying,:office_software,
-   #                                                                      :work_experiences_attributes => work , :cducations_attributes => cduet))
     @article = EmployeeInfo.new(article_params)
+    @article.department_id = params[:select]
     if @article.save
     params[:work_experience].each { |pars|
       @workExperien = WorkExperience.new(pars.permit(:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone))
@@ -101,6 +93,7 @@ class Admin::StaffinfoController < Admin::BaseController
                                           :_school,:major,:highest_degree,:id_card_number,:permanent_address,
                                           :live_address,:mailbox,:salary_expectation,:arrival_time,:work_params,
                                           :self_evaluation,:reasons_for_applying,:office_software,:department_id,
+
                                          )
   end
   def work_params
