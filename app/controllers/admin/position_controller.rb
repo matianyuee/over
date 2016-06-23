@@ -1,17 +1,9 @@
 class  Admin::PositionController < Admin::BaseController
   def new
-    @positions = Position.new
-
+    @positioninfo = Position.new
     @department = Department.all
   end
-  def create
-    @positions = Position.new(positioninfo)
-    if @positions.save
-      redirect_to :action => 'index'
-    else
-      render :new
-    end
-  end
+
 
   def edit
     @position = Position.find(params[:id])
@@ -25,8 +17,18 @@ class  Admin::PositionController < Admin::BaseController
   end
 
   def index
-    @position = Position.find_by_sql("select positions.*,departments.positionName  from  departments inner join positions on departments.id = positions.department_id ")
+    @position = Position.all
+    @positioninfo = Position.new
+    @department = Department.all
+  end
 
+  def create
+    @positioninfo = Position.create(positioninfo)
+    if @positioninfo
+      redirect_to :action => 'index'
+    else
+      render :new
+    end
   end
 
   def show
