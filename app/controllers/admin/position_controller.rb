@@ -17,9 +17,10 @@ class  Admin::PositionController < Admin::BaseController
   end
 
   def index
-    @position = Position.all
+
     @positioninfo = Position.new
    @department = Department.all
+    @position = Position.where("department_id=?",params[:select])
   end
 
   def create

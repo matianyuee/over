@@ -62,6 +62,9 @@
       count1-=1;
     })
   })
+
+
+
 </script>
 
 
@@ -113,6 +116,8 @@
       padding-left: 25px;
     }
 
+
+
 </style>
 
 <%= form_for(@article, url: {:controller => 'admin/staffinfo' ,:action => 'create'} ,html:{method: :post}) do |f| %>
@@ -135,13 +140,39 @@
           <td class="td_style"><%= f.label :身高%></td><td><%= f.text_field :height%></td>
           <td class="td_style"><%= f.label :体重%></td><td><%= f.text_field :weight%></td>
           <td class="td_style"><%= f.label :联系电话%></td><td><%= f.text_field :contact_phone%></td>
+          <script>
+            $(document).ready(function(){
+              $("#department").change(function () {
+                var department = $(this).val()
+                $.ajax({
+                  url: "/admin/staffinfo/department_position",
+                  data : {id: department},
+                  type : "get",
+                  success: function (json) {
+                    var str = ""
+                    for(var i =0 ;json.length > i; i++){
+                      if(i == 0){
+                        str += "<option value="+json[i].id+">"+json[i].name+"</option>"
+                      }else{
+                        if(json[i].name != json[i-1].name){
+                          str += "<option value="+json[i].id+">"+json[i].name+"</option>"
+                        }
+                      }
+                    }
+                    $("#position").html(str)
+                  }
+                })
+              });
+            });
+          </script>
           <td class="td_style" colspan="1"><%= f.label :部门%></td>
-            <td><select class="form-control" name="select">
+            <td><select class="form-control" name="select" id="department">
               <option value=''>请选择部门</option>
               <%@department.each do |d |%>
                   <option value='<%=d.id%>'><%=d.positionName%></option>
               <% end %>
             </select>
+              <select class="form-control" name="selectposition" id="position"></select>
             </td>
         </tr>
         <tr>

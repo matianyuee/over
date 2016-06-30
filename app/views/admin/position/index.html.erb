@@ -8,15 +8,30 @@
 </style>
 <script>
   $(document).ready(function () {
-      $("form").submit(function () {
-       if ($("#bu").val() == -1) {
-            alert("你还没有选择部门!");
-         return false
-       }
+      $("#new_position").submit(function () {
+         if ($("#bu").val() == -1) {
+           alert("你还没有选择部门!");
+           return false
+         }
       });
   });
 </script>
 <h4 align="center">职位信息</h4>
+<form class="navbar-form navbar-left" role="search" action="">
+  <table id="table">
+    <tr>
+      <td>
+        <select class="form-control" name="select" id="bb">
+          <option value=''>请选择部门</option>
+          <%@department.each do |d |%>
+              <option value='<%=d.id%>'><%=d.positionName%></option>
+          <% end %>
+        </select>
+      </td>
+      <td> <button type="submit" class="btn btn-default" id="bb">查找</button></td>
+    </tr>
+  </table>
+</form>
 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">职位新增</button>
 
 <!-- Modal -->
@@ -47,7 +62,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="submit" class="btn btn-primary">提交</button>
+        <button type="submit" class="btn btn-primary" id="Test">提交</button>
       </div>
         <% end %>
     </div>
@@ -59,7 +74,6 @@
     <table class="table table-hover">
       <tr class="danger">
         <td>编号</td>
-        <td>部门</td>
         <td>职位名称</td>
         <td>操作</td>
       </tr>
@@ -67,11 +81,6 @@
       <% @position.each do |ar| %>
           <tr class="info">
             <td><%= ar.id%></td>
-            <% @department.each do |d|%>
-                <% if ar.department_id == d.id%>
-                  <td><%= d.positionName%></td>
-                    <% end%>
-                <% end%>
             <td><%= ar.positionname%></td>
             <td>
                <%= link_to  '', {:controller => 'admin/position', :action => 'show', :id => "#{ar.id}"} , :class => "glyphicon glyphicon-search"%>

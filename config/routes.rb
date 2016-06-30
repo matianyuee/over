@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       end
       collection do
         match 'groupleader', :via =>[:get,:post]
+        get 'department_position'
       end
     end
     resources :workexperience

@@ -35,6 +35,7 @@ class Admin::StaffinfoController < Admin::BaseController
   def create
     @article = EmployeeInfo.new(article_params)
     @article.department_id = params[:select]
+    @article.position_id= params[:selectposition]
     if @article.save
     params[:work_experience].each { |pars|
       @workExperien = WorkExperience.new(pars.permit(:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone))
@@ -99,6 +100,11 @@ class Admin::StaffinfoController < Admin::BaseController
   def work_params
     params.require(:work_experience).permit(:start_and,:end_date,:work_unit,:post,:salary,:reasons_for_leaving,:witness,:telephone)
   end
+
+  def department_position
+    render json: Position.where("department_id=?",params.require(:id)).map{|p| {id: p.id, name: p.positionname}}
+  end
+
   def cdudetion_params
     params.require(:cducations).permit(:start_and,:end_date,:school,:major,:leaming_form,:qualifications_and_degree)
   end

@@ -1,0 +1,12 @@
+<table>
+<tr>
+  <td>姓名</td><td>部门</td><td>职位</td>
+</tr>
+<%= @resignation.each do |r|%>
+    <tr>
+      <td><%= r.employee_info_id%></td>
+      <td><%= r.department_id%></td>
+      <td><%= r.position_id%></td>
+    </tr>
+<% end%>
+</table>
