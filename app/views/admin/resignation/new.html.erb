@@ -7,53 +7,65 @@
     margin-right: 150px;
     padding-bottom: 30px;
   }
+    #resignationapplication_contractexpirationdate{
+      width: 100%;
+    }
+    #resignationapplication_reasonforresignationinfo{
+      width: 100%;
+      height: 2.1cm;
+    }
+    #resignationapplication_staffsignature{
+      width: 100%;
+    }
+    #resignationapplication_staffsignaturedate{
+      width: 100%;
+    }
+    #da{
+
+      height: 10cm;
+    }
 </style>
 <%=form_for(@resignationapplication ,url:{:controller => 'admin/resignation',:action =>'create'} ,html:{method: :post})do|f|%>
-    <table>
+    <table border="1px" align="center" style="text-align: center">
       <h2 align="center">员工离职申请表</h2>
       <% @employees.each do |e|%>
       <tr>
-        <td>姓名:</td>
+        <td>姓名</td>
         <td ><%= e.name%></td>
-        <td>部门:</td>
+        <td>部门</td>
         <td><%= e.positionName%></td>
-        <td>职位:</td>
+        <td>职位</td>
         <td><%= e.positionname%></td>
       </tr>
-
       <tr>
-        <td>入职时间:</td>
-        <td><%= e.created_at%></td>
+        <td>入职时间</td>
+        <td colspan="2"><%=e.created_at%></td>
       <% end%>
-        <td colspan="2">合同到期日/试用到期日:</td>
+        <td>合同到期日</td>
         <td colspan="2"><%= f.date_field :contractexpirationdate%></td>
       </tr>
       <tr>
-        <td colspan="6">
-              <table>
-                <tr>
-                  <td><%= f.radio_button("reasonsforresignation", "辞职" ,:style => 'width:10px;') %>  辞职</td>
-                  <td><%= f.radio_button("reasonsforresignation", "离职" ,:style => 'width:10px;') %> 离职</td>
-                  <td><%= f.radio_button("reasonsforresignation", "辞退" ,:style => 'width:10px;') %> 辞退</td>
-                  <td><%= f.radio_button("reasonsforresignation", "开除" ,:style => 'width:10px;') %>  开除</td>
-                  <td><%= f.radio_button("reasonsforresignation", "合同到期" ,:style => 'width:10px;') %>  合同到期</td>
-                </tr>
-                <tr>
-                  <td>本人因:</td>
-                  <td colspan="4"><%=f.text_area :reasonforresignationinfo%><br>,特申请辞职，请公司领导给予批准</td>
-                </tr>
-                <tr>
-                  <td>&nbsp;<br /></td>
-                </tr>
-                <tr>
-                  <td>员工签字:</td><td><%=f.text_field :staffsignature%></td>
-                </tr>
-                <tr>
-                  <TD>日期:</TD><td><%=f.date_field :staffsignaturedate %></td>
-                </tr>
-              </table>
-              </td>
-          </tr>
+        <td><%= f.radio_button("reasonsforresignation", "辞职" ,:style => 'width:10px;') %>  辞职</td>
+        <td><%= f.radio_button("reasonsforresignation", "离职" ,:style => 'width:10px;') %> 离职</td>
+        <td><%= f.radio_button("reasonsforresignation", "辞退" ,:style => 'width:10px;') %> 辞退</td>
+        <td><%= f.radio_button("reasonsforresignation", "开除" ,:style => 'width:10px;') %>  开除</td>
+        <td colspan="2"><%= f.radio_button("reasonsforresignation", "合同到期" ,:style => 'width:10px;') %>  合同到期</td>
+      </tr>
+      <tr>
+        <td>本人因</td>
+        <td colspan="5"><%=f.text_area :reasonforresignationinfo%><br>,特申请辞职，请公司领导给予批准</td>
+      </tr>
+      <tr>
+        <td>员工签字</td><td colspan="6"><%=f.text_field :staffsignature%></td>
+      </tr>
+      <tr>
+        <td>日期</td><td colspan="6"><%=f.date_field :staffsignaturedate %></td>
+      </tr>
+     <tr>
+        <td colspan="6" align="center"> <%= f.submit '提交'%></td>
+     </tr>
     </table>
-    <%= f.submit '提交'%>
+
 <% end %>
+<div id="da">
+</div>

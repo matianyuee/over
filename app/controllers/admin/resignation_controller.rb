@@ -12,6 +12,7 @@ class   Admin::ResignationController < Admin::BaseController
   end
   def index
       @resignationapplication = Resignationapplication.all
+
       @employees = EmployeeInfo.all
       @department = Department.all
       @position = Position.all
@@ -20,11 +21,24 @@ class   Admin::ResignationController < Admin::BaseController
   def edit
       @resignationapplication = Resignationapplication.find(params[:id])
       @employees = EmployeeInfo.where("id=?",@resignationapplication.employee_info_id)
+
       @department = Department.all
       @position = Position.all
+  end
+  def update
+    @resignationapplication = Resignationapplication.find(params[:id])
+    @resignationapplication.update(updateinfo)
+    redirect_to :controller => :resignation , :action =>:index
   end
   private
   def resignationapplicationinfo
     params.require(:resignationapplication).permit(:contractexpirationdate,:reasonsforresignation,:reasonforresignationinfo,:staffsignature,:staffsignaturedate)
+  end
+  private
+  def updateinfo
+    params.require(:resignationapplication).permit(:superiorsignature,:superiorsignaturedate,:lastworkingday,
+                                                   :doyouneedtomakeup,:exitinterviewrecord,:signatureofdepartmentdirector,
+                                                   :signatureofhrdirector,:ceosignature,:departmentdirectordate,
+                                                   :hrdirectordate,:sedate)
   end
 end
