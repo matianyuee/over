@@ -6,6 +6,9 @@
     $("#gg").click(function(){
       $("#treee").toggle()
     });
+    $("#ggg").click(function(){
+      $("#treeee").toggle()
+    });
   });
 </script>
 
@@ -43,7 +46,13 @@
           <%= link_to '部门组长' ,{:controller => :staffinfo, :action => :groupleader} %>
         </li>
       </ul>
+      <li id="ggg"><a href='#' class='text-aqua'><i class='fa fa-circle-o'></i>审批</a></li>
+      <ul id="treeee">
 
+        <li>
+          <%= link_to '待审核' , {:controller => :resignation, :action => :index } %>
+        </li>
+      </ul>
     </ul>
   </section>
 </aside>

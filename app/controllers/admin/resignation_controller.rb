@@ -8,13 +8,23 @@ class   Admin::ResignationController < Admin::BaseController
     @resignationapplication = Resignationapplication.new(resignationapplicationinfo)
     @resignationapplication.employee_info_id = session[:id]
     @resignationapplication.save
-    redirect_to :controller => :leavedatail ,:action => :new
+    redirect_to :controller => :staffinfo ,:action => :index
+  end
+  def index
+      @resignationapplication = Resignationapplication.all
+      @employees = EmployeeInfo.all
+      @department = Department.all
+      @position = Position.all
   end
 
+  def edit
+      @resignationapplication = Resignationapplication.find(params[:id])
+      @employees = EmployeeInfo.where("id=?",@resignationapplication.employee_info_id)
+      @department = Department.all
+      @position = Position.all
+  end
   private
   def resignationapplicationinfo
-    params.require(:resignationapplication).permit(:contractexpirationdate,:reasonsforresignation,:reasonforresignationinfo,:staffsignature,:superiorsignature,:staffsignaturedate,
-                                                   :superiorsignaturedate,:lastworkingday,:doyouneedtomakeup,:exitinterviewrecord,:signatureofdepartmentdirector,
-                                                   :signatureofhrdirector,:ceosignature,:departmentdirectordate,:hrdirectordate,:sedate)
+    params.require(:resignationapplication).permit(:contractexpirationdate,:reasonsforresignation,:reasonforresignationinfo,:staffsignature,:staffsignaturedate)
   end
 end

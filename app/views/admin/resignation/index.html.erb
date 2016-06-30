@@ -1,12 +1,33 @@
-<table>
-<tr>
-  <td>姓名</td><td>部门</td><td>职位</td>
-</tr>
-<%= @resignation.each do |r|%>
-    <tr>
-      <td><%= r.employee_info_id%></td>
-      <td><%= r.department_id%></td>
-      <td><%= r.position_id%></td>
-    </tr>
-<% end%>
+<table  class="table table-hover" id="table">
+  <tr class="danger">
+    <td>姓名</td>
+    <td>部门</td>
+    <td>职位</td>
+    <td>请求</td>
+    <td>操作</td>
+
+  </tr>
+
+  <% @resignationapplication.each do |ar| %>
+      <tr class="info">
+        <% @employees.each do |ee|%>
+        <% if ar.employee_info_id == ee.id%>
+           <td><%= ee.name%></td>
+                <% @department.each do |dd|%>
+                    <% if ee.department_id == dd.id%>
+                        <td> <%= dd.positionName%></td>
+                    <% end%>
+                <% end%>
+                <% @position.each do |pp|%>
+                    <% if ee.position_id == pp.id%>
+                        <td><%= pp.positionname%></td>
+                    <% end%>
+                <% end%>
+            <% end%>
+
+        <% end%>
+        <td><%= ar.reasonsforresignation%></td>
+        <td><%= link_to '未审核', {:controller => :resignation , :action => :edit , :id => "#{ar.id}"} %></td>
+      </tr>
+  <% end %>
 </table>

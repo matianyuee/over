@@ -11,7 +11,7 @@ class CreateEmployeeInfos < ActiveRecord::Migration[5.0]
       t.string :physical_condition
       t.string :height
       t.string :weight
-      t.integer :contact_phone
+      t.string :contact_phone
       t.string :graduation_time
       t.string :_school
       t.string :major

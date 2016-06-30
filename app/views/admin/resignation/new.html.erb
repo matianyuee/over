@@ -9,7 +9,7 @@
   }
 </style>
 <%=form_for(@resignationapplication ,url:{:controller => 'admin/resignation',:action =>'create'} ,html:{method: :post})do|f|%>
-    <table  class="table table-hover">
+    <table>
       <h2 align="center">员工离职申请表</h2>
       <% @employees.each do |e|%>
       <tr>
@@ -40,60 +40,20 @@
                 </tr>
                 <tr>
                   <td>本人因:</td>
-                  <td colspan="4"><%=f.text_area :reasonforresignationinfo %><br>,特申请辞职，请公司领导给予批准</td>
+                  <td colspan="4"><%=f.text_area :reasonforresignationinfo%><br>,特申请辞职，请公司领导给予批准</td>
                 </tr>
                 <tr>
                   <td>&nbsp;<br /></td>
                 </tr>
                 <tr>
                   <td>员工签字:</td><td><%=f.text_field :staffsignature%></td>
-                  <td>上级签字:</td><td><%=f.text_field :superiorsignature%></td>
                 </tr>
                 <tr>
                   <TD>日期:</TD><td><%=f.date_field :staffsignaturedate %></td>
-                  <td>日期:</td><td><%=f.date_field :superiorsignaturedate %></td>
                 </tr>
               </table>
               </td>
           </tr>
-      <tr>
-        <td rowspan="2">部门意见</td>
-        <td colspan="2">最后工作日:</td>
-        <td colspan="3"><%=f.date_field :lastworkingday ,:style=>"width: 100%;" %></td>
-      </tr>
-      <tr>
-        <td colspan="2">是否需要补员:</td>
-        <td colspan="3">
-          <%=f.radio_button "doyouneedtomakeup","是" ,:style => 'width:10px;'%>是
-          <%=f.radio_button "doyouneedtomakeup"," 否" ,:style => 'width:10px;' %>否
-        </td>
-      </tr>
-      <tr>
-        <td>人力资源部面谈记录</td>
-        <td colspan="5">
-          <%=f.text_area :exitinterviewrecord %>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" align="center">部门总监</td>
-        <td colspan="2" align="center">人力资源部总监</td>
-        <td colspan="2" align="center">CEO</td>
-      </tr>
-      <tr>
-        <td align="center">签字:</td>
-        <td><%=f.text_field :signatureofdepartmentdirector%></td>
-        <td align="center">签字:</td>
-        <td><%=f.text_field :signatureofhrdirector%></td>
-        <td align="center">签字:</td>
-        <td><%=f.text_field :ceosignature%></td>
-      </tr>
-      <tr>
-        <td align="center" colspan="2"><%=f.date_field :departmentdirectordate%></td>
-        <td align="center" colspan="2"><%=f.date_field :hrdirectordate%></td>
-        <td align="center" colspan="2"><%=f.date_field :sedate%></td>
-      </tr>
-      <tr>
-        <td colspan="6" align="center"><%=f.submit "提交"%></td>
-      </tr>
     </table>
+    <%= f.submit '提交'%>
 <% end %>

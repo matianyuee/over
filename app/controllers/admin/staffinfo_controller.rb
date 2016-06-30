@@ -26,7 +26,6 @@ class Admin::StaffinfoController < Admin::BaseController
           end
       else
              @employees = EmployeeInfo.find(params[:groupid])
-
             @employees.update(position_id:4)
              redirect_to :action => :groupleader
       end
