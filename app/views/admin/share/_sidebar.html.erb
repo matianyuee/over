@@ -40,7 +40,7 @@
       <ul id="treee">
 
         <li>
-          <%= link_to '应聘人员' , {:controller => :staffinfo, :action => :index } %>
+          <%= link_to '人员' , {:controller => :staffinfo, :action => :index } %>
         </li>
         <li>
           <%= link_to '部门组长' ,{:controller => :staffinfo, :action => :groupleader} %>
@@ -51,6 +51,9 @@
 
         <li>
           <%= link_to '待审核' , {:controller => :resignation, :action => :index } %>
+        </li>
+        <li>
+          <%= link_to '审核后续' , {:controller => :leavedatail, :action => :index } %>
         </li>
       </ul>
     </ul>

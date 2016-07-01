@@ -3,7 +3,7 @@
     height: 10cm;
   }
 </style>
-<h3 align="center">员工审批</h3>
+<h3 align="center">员工离职后续手续办理</h3>
 <table  class="table table-hover" id="table">
   <tr class="danger">
     <td>姓名</td>
@@ -17,8 +17,8 @@
   <% @resignationapplication.each do |ar| %>
       <tr class="info">
         <% @employees.each do |ee|%>
-        <% if ar.employee_info_id == ee.id%>
-           <td><%= ee.name%></td>
+            <% if ar.employee_info_id == ee.id%>
+                <td><%= ee.name%></td>
                 <% @department.each do |dd|%>
                     <% if ee.department_id == dd.id%>
                         <td> <%= dd.positionName%></td>
@@ -34,7 +34,7 @@
         <% end%>
         <td><%= ar.reasonsforresignation%></td>
 
-            <td><%= link_to '未审核', {:controller => :resignation , :action => :edit , :id => "#{ar.id}"} %></td>
+        <td><%= link_to '可可', {:controller => :resignation , :action => :edit , :id => "#{ar.id}"} %></td>
 
       </tr>
   <% end %>

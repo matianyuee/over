@@ -26,5 +26,10 @@ class  Admin::LeavedatailController < Admin::BaseController
           
       redirect_to :controller => :staffinfo ,:action => :index
   end
-
+  def index
+    @resignationapplication = Resignationapplication.find_by_sql("select * from resignationapplications where superiorsignature IS not NULL or superiorsignature <>'' and signatureofdepartmentdirector is not null or signatureofdepartmentdirector <>'' and signatureofhrdirector is not null or signatureofhrdirector <>'' and ceosignature is not null or ceosignature <>''")
+    @employees = EmployeeInfo.all
+    @department = Department.all
+    @position = Position.all
+  end
 end
